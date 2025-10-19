@@ -10,7 +10,54 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  overflow: hidden; /* Mencegah scroll bar saat loader muncul */
 }
+
+/* --- PERUBAHAN: Gaya untuk Loader Awal --- */
+#initial-loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #cde4bd;
+  display: flex; /* Tampil secara default */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2000; /* Pastikan di atas segalanya */
+}
+
+#initial-loader-container .loader-content {
+  text-align: center;
+}
+
+#initial-progress-bar-container {
+  width: 80%;
+  max-width: 500px;
+  height: 30px;
+  background-color: #e8f5e9;
+  border-radius: 15px;
+  padding: 5px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+}
+
+#initial-progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff7828, #ffa500);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.loading-text {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+  margin-top: 10px;
+}
+/* --- AKHIR PERUBAHAN --- */
 
 /* Kontainer utama */
 #slide-container {
@@ -21,7 +68,7 @@ body {
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  display: flex;
+  display: none; /* --- PERUBAHAN: Sembunyikan secara default --- */
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -124,14 +171,6 @@ body {
   background-color: #3498db;
   width: 0%;
   transition: width 0.3s ease;
-}
-
-/* Loading text */
-.loading-text {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #333;
-  font-weight: 600;
 }
 
 /* ///////////////////////////// */
@@ -285,6 +324,120 @@ body {
   top: 75%;
   left: 50%;
   width: 11%;
+}
+#btn-startquiz {
+  top: 71%;
+  left: 50%;
+  width: 25%;
+}
+#btn-qanus {
+  top: 56%;
+  left: 38%;
+  width: 20%;
+}
+#btn-qlidah {
+  top: 56%;
+  left: 63%;
+  width: 20%;
+}
+#btn-qusushalus {
+  top: 77%;
+  left: 38%;
+  width: 20%;
+}
+#btn-qlambung {
+  top: 77%;
+  left: 63%;
+  width: 20%;
+}
+
+#btn-qgigi {
+  top: 56%;
+  left: 38%;
+  width: 20%;
+}
+#btn-qususbesar {
+  top: 56%;
+  left: 63%;
+  width: 20%;
+}
+#btn-qduode {
+  top: 77%;
+  left: 38%;
+  width: 20%;
+}
+#btn-qmulut {
+  top: 77%;
+  left: 63%;
+  width: 20%;
+}
+#btn-qsoal4 {
+  top: 82%;
+  left: 50%;
+  width: 50%;
+}
+/* CLASS UMUM UNTUK SEMUA SOAL */
+@font-face {
+  font-family: "Biski";
+  src: url("fonts/Biski-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.isian {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.isian img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* AREA TEKS */
+.isian textarea {
+  font-family: "Biski", sans-serif;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 60%;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  text-align: center;
+  font-size: 1.2em;
+  color: #000000;
+  padding: 5px;
+  line-height: 1.3em;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  z-index: 11;
+  cursor: text;
+}
+
+/* POSISI TIAP SOAL — tinggal ubah top/left/width */
+#input-qsoal4 {
+  top: 82%;
+  left: 50%;
+  width: 50%;
+}
+
+#input-qsoal5 {
+  top: 84%; /* geser ke bawah */
+  left: 50%; /* sedikit ke kanan */
+  width: 48%; /* sedikit lebih kecil */
+}
+
+#input-qsoal6 {
+  top: 79%; /* geser ke bawah */
+  left: 50%; /* sedikit ke kanan */
+  width: 64%; /* sedikit lebih kecil */
 }
 
 /* Input pertama */
