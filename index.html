@@ -4,433 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Food Journey - Pembelajaran Interaktif</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Solway:wght@400;500;700&display=swap");
-
-      body {
-        margin: 0;
-        padding: 0;
-        background: #cde4bd;
-        font-family: "Poppins", sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        overflow: hidden; /* Mencegah scroll bar saat loader muncul */
-      }
-
-      /* --- PERUBAHAN: Gaya untuk Loader Awal --- */
-      #initial-loader-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #cde4bd;
-        display: flex; /* Tampil secara default */
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        z-index: 2000; /* Pastikan di atas segalanya */
-      }
-
-      #initial-loader-container .loader-content {
-        text-align: center;
-      }
-
-      #initial-progress-bar-container {
-        width: 80%;
-        max-width: 500px;
-        height: 30px;
-        background-color: #e8f5e9;
-        border-radius: 15px;
-        padding: 5px;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-        margin: 20px auto;
-      }
-
-      #initial-progress-bar {
-        width: 0%;
-        height: 100%;
-        background: linear-gradient(90deg, #ff7828, #ffa500);
-        border-radius: 10px;
-        transition: width 0.3s ease;
-      }
-
-      .loading-text {
-        font-size: 18px;
-        color: #333;
-        font-weight: 600;
-        margin-top: 10px;
-      }
-      /* --- AKHIR PERUBAHAN --- */
-
-      /* Kontainer utama */
-      #slide-container {
-        text-align: center;
-        width: 90%;
-        max-width: 1100px;
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        display: none; /* --- PERUBAHAN: Sembunyikan secara default --- */
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
-
-      /* Area media */
-      #media-container {
-        width: 100%;
-        max-width: 1100px;
-        aspect-ratio: 16 / 9;
-        background-color: #f9f9f9;
-        border-radius: 12px;
-        overflow: hidden;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      #media-container img,
-      #media-container video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      /* Progress bar loader style untuk setelah klik START */
-      .progress-loader-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: #cde4bd;
-        z-index: 10;
-      }
-
-      .progress-loader {
-        width: 80%;
-        max-width: 500px;
-        height: 40px;
-        background-color: #e8f5e9;
-        border-radius: 1px;
-        padding: 5px;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-        display: flex;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .progress-segments {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        gap: 3px;
-      }
-
-      .segment {
-        flex: 1;
-        background-color: #e0e0e0;
-        border-radius: 3px;
-        transition: background-color 0.3s ease;
-      }
-
-      .segment.filled {
-        background-color: #ff7828;
-        animation: pulse 0.5s ease;
-      }
-
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.1);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-
-      /* Progress bar style */
-      .progress-container {
-        width: 80%;
-        height: 10px;
-        background-color: #e0e0e0;
-        border-radius: 5px;
-        margin: 20px auto;
-        overflow: hidden;
-      }
-
-      .progress-bar {
-        height: 100%;
-        background-color: #3498db;
-        width: 0%;
-        transition: width 0.3s ease;
-      }
-
-      /* ///////////////////////////// */
-      .btn {
-        position: absolute;
-        transform: translate(-50%, -50%);
-        cursor: pointer;
-        transition: transform 0.3s ease;
-        z-index: 10; /* pastikan di atas media */
-      }
-
-      .btn:hover {
-        transform: translate(-50%, -50%) scale(1.1);
-      }
-
-      .btn:active {
-        transform: translate(-50%, -50%) scale(0.95);
-      }
-
-      .btn img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      /* Tombol Start */
-      #btn-start {
-        top: 65%;
-        left: 50%;
-        width: 11%;
-      }
-
-      /* Tombol next */
-      #btn-next {
-        bottom: 17%;
-        left: 50%;
-        width: 7%;
-      }
-
-      /* Tombol Materi */
-      #btn-materi {
-        top: 49%;
-        left: 27.5%;
-        width: 13%;
-      }
-
-      #btn-materi1 {
-        top: 44%;
-        left: 24%;
-        width: 38%;
-      }
-      #btn-materi2 {
-        top: 44%;
-        left: 75%;
-        width: 38%;
-      }
-      #btn-materi3 {
-        top: 73%;
-        left: 50%;
-        width: 38%;
-      }
-
-      #btn-quiz {
-        top: 49%;
-        left: 52%;
-        width: 13%;
-      }
-
-      #btn-game {
-        top: 49%;
-        left: 76.5%;
-        width: 13%;
-      }
-
-      #btn-nextm1 {
-        bottom: -3.5%;
-        right: 6.6%;
-        width: 6%;
-      }
-      #btn-backm1 {
-        bottom: -3.5%;
-        left: 12.5%;
-        width: 6%;
-      }
-      #btn-backm2 {
-        bottom: -3.5%;
-        left: 12.5%;
-        width: 6%;
-      }
-      #btn-backm3 {
-        bottom: -3.5%;
-        left: 12.5%;
-        width: 6%;
-      }
-      #btn-nextend {
-        bottom: -3.5%;
-        right: 6.6%;
-        width: 6%;
-      }
-      #btn-home {
-        top: 8%;
-        left: 5.6%;
-        width: 5%;
-      }
-      #btn-menu {
-        top: 8%;
-        left: 12.6%;
-        width: 5%;
-      }
-      #btn-musik {
-        top: 8%;
-        right: 0%;
-        width: 5%;
-      }
-
-      #btn-gigi {
-        bottom: -2%;
-        left: 27%;
-        width: 18%;
-      }
-      #btn-lidah {
-        bottom: -2%;
-        left: 74%;
-        width: 18%;
-      }
-
-      #btn-duo {
-        top: 39%;
-        left: 26%;
-        width: 26%;
-      }
-
-      #btn-jeju {
-        top: 55%;
-        left: 29%;
-        width: 20%;
-      }
-
-      #btn-ileum {
-        top: 71.5%;
-        left: 32%;
-        width: 14%;
-      }
-
-      #btn-dyk {
-        top: 85%;
-        left: 50%;
-        width: 11%;
-      }
-      #btn-dyk2 {
-        top: 75%;
-        left: 50%;
-        width: 11%;
-      }
-
-      /* Input pertama */
-      .input-box {
-        position: absolute;
-        padding: 2px;
-        border: none;
-        /* border: 0px solid #000000; */
-        border-radius: 0;
-        font-size: 22px;
-        text-align: center;
-        box-sizing: border-box;
-        background-color: #ffffff;
-        transform: translate(-50%, -50%);
-        font-family: "Solway", serif; /* pastikan input juga memakai Solway */
-        outline: none;
-        z-index: 10;
-        transition: all 0.3s ease;
-      }
-      /* Posisi & ukuran spesifik */
-      #text-input {
-        width: 50%;
-        height: 10%;
-        top: 55%;
-        left: 50%;
-      }
-
-      /* Gaya untuk Container Popup (Overlay) */
-      .popup-container {
-        display: none; /* Sembunyikan secara default */
-        position: fixed; /* Tetap di layar meski di-scroll */
-        z-index: 1000; /* Pastikan di atas konten lainnya */
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7); /* Background gelap transparan */
-        justify-content: center;
-        align-items: center;
-        animation: fadeIn 0.3s;
-      }
-
-      /* Gaya untuk Konten Popup */
-      .popup-content {
-        position: relative;
-        background-color: #fefefe;
-        margin: auto;
-        padding: 20px;
-        border-radius: 12px;
-        width: 80%;
-        max-width: 700px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        animation: slideIn 0.4s;
-      }
-
-      /* Gaya untuk Gambar di dalam Popup */
-      .popup-content img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        display: block;
-      }
-
-      /* Gaya untuk Tombol Close (X) */
-      .popup-close-btn {
-        position: absolute;
-        top: 10px;
-        right: 30px;
-        color: #aaa;
-        font-size: 50px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: color 0.2s;
-      }
-
-      .popup-close-btn:hover {
-        color: #fc0202;
-      }
-
-      /* Animasi saat muncul */
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      @keyframes slideIn {
-        from {
-          transform: translateY(-50px);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-    </style>
+    <style></style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- --- PERUBAHAN: Loader Awal --- -->
@@ -440,7 +15,9 @@
         <div id="initial-progress-bar-container">
           <div id="initial-progress-bar"></div>
         </div>
-        <div class="loading-text">Memuat Aset... <span id="loading-percentage">0%</span></div>
+        <div class="loading-text">
+          Memuat Aset... <span id="loading-percentage">0%</span>
+        </div>
       </div>
     </div>
     <!-- --- AKHIR PERUBAHAN --- -->
@@ -584,6 +161,59 @@
             onclick="openPopup('popup-dyk-container')"
           />
         </div>
+
+        <!-- quiz -->
+        <div id="btn-startquiz" class="btn">
+          <img
+            src="ASSET/startquiz.png"
+            alt="START QUIZ Button"
+            onclick="nextMedia()"
+          />
+        </div>
+        <!-- soal 1 -->
+        <div id="btn-qanus" class="btn">
+          <img src="ASSET/qanus.png" alt="Anus Button" />
+        </div>
+        <div id="btn-qlidah" class="btn">
+          <img src="ASSET/qlidah.png" alt="Lidah Button" />
+        </div>
+        <div id="btn-qusushalus" class="btn">
+          <img src="ASSET/qusushalus.png" alt="Usus Halus Button" />
+        </div>
+        <div id="btn-qlambung" class="btn">
+          <img src="ASSET/qlambung.png" alt="Lambung Button" />
+        </div>
+        <!-- soal 2 -->
+        <div id="btn-qgigi" class="btn">
+          <img src="ASSET/qgigi.png" alt="Gigi Button" />
+        </div>
+        <div id="btn-qususbesar" class="btn">
+          <img src="ASSET/qususbesar.png" alt="Usus Besar Button" />
+        </div>
+        <div id="btn-qduode" class="btn">
+          <img src="ASSET/qduode.png" alt="Duodenum Button" />
+        </div>
+        <div id="btn-qmulut" class="btn">
+          <img src="ASSET/qmulut.png" alt="Mulut Button" />
+        </div>
+        <!-- soal 3 isian -->
+        <!-- soal 4 isian -->
+        <div id="input-qsoal4" class="isian">
+          <img src="ASSET/qkosongan.png" alt="" />
+          <textarea placeholder="Ketik jawaban di sini..."></textarea>
+        </div>
+        <!-- soal 5 isian -->
+        <div id="input-qsoal5" class="isian">
+          <img src="ASSET/qkosongan.png" alt="" />
+          <textarea placeholder="Ketik jawaban di sini..."></textarea>
+        </div>
+        <!-- soal 6 isian -->
+        <div id="input-qsoal6" class="isian">
+          <img src="ASSET/qkosongan.png" alt="" />
+          <textarea placeholder="Ketik jawaban di sini..."></textarea>
+        </div>
+
+        <!--  -->
       </div>
     </div>
     <!-- SEMUA POPUP DIPINDAHKAN KE SINI, DI LUAR KONTAINER UTAMA -->
@@ -682,13 +312,13 @@
       function preloadAssets(imageUrls, callback) {
         let loadedImages = 0;
         const totalImages = imageUrls.length;
-        const progressBar = document.getElementById('initial-progress-bar');
-        const percentageText = document.getElementById('loading-percentage');
+        const progressBar = document.getElementById("initial-progress-bar");
+        const percentageText = document.getElementById("loading-percentage");
 
         const updateProgress = () => {
           const percentage = Math.round((loadedImages / totalImages) * 100);
-          progressBar.style.width = percentage + '%';
-          percentageText.textContent = percentage + '%';
+          progressBar.style.width = percentage + "%";
+          percentageText.textContent = percentage + "%";
         };
 
         for (let i = 0; i < totalImages; i++) {
@@ -717,14 +347,14 @@
       // Fungsi yang dijalankan setelah semua aset dimuat
       function onAllAssetsLoaded() {
         // Sembunyikan loader awal
-        document.getElementById('initial-loader-container').style.display = 'none';
+        document.getElementById("initial-loader-container").style.display =
+          "none";
         // Tampilkan kontainer utama aplikasi
-        document.getElementById('slide-container').style.display = 'flex';
+        document.getElementById("slide-container").style.display = "flex";
         // Jalankan logika awal aplikasi
         showMedia(0);
       }
       // --- AKHIR PERUBAHAN ---
-
 
       const mediaList = [
         { type: "image", src: "IMG/1.png" },
@@ -749,6 +379,18 @@
         { type: "image", src: "IMG/27.png" },
         { type: "image", src: "IMG/28.png" },
         { type: "image", src: "IMG/29.png" },
+        //game
+        { type: "image", src: "IMG/30.png" }, // 22
+        { type: "image", src: "IMG/31.png" },
+        { type: "image", src: "IMG/32.png" },
+        //quiz
+        { type: "image", src: "IMG/33.png" }, // 25
+        { type: "image", src: "IMG/34.png" },
+        { type: "image", src: "IMG/35.png" },
+        { type: "image", src: "IMG/36.png" },
+        { type: "image", src: "IMG/37.png" },
+        { type: "image", src: "IMG/38.png" },
+        { type: "image", src: "IMG/39.png" },
       ];
 
       let currentIndex = 0;
@@ -778,6 +420,18 @@
         const btnHome = document.getElementById("btn-home");
         const btnMenu = document.getElementById("btn-menu");
         const btnMusik = document.getElementById("btn-musik");
+        const btnStartQuiz = document.getElementById("btn-startquiz");
+        const btnqLambung = document.getElementById("btn-qlambung");
+        const btnqUsushalus = document.getElementById("btn-qusushalus");
+        const btnqLidah = document.getElementById("btn-qlidah");
+        const btnqAnus = document.getElementById("btn-qanus");
+        const btnqMulut = document.getElementById("btn-qmulut");
+        const btnqDuode = document.getElementById("btn-qduode");
+        const btnqUsusbesar = document.getElementById("btn-qususbesar");
+        const btnqGigi = document.getElementById("btn-qgigi");
+        const btnqSoal4 = document.getElementById("input-qsoal4");
+        const btnqSoal5 = document.getElementById("input-qsoal5");
+        const btnqSoal6 = document.getElementById("input-qsoal6");
         // Hapus media lama (kecuali tombol)
         const excludedIds = [
           "btn-start",
@@ -804,6 +458,18 @@
           "btn-home",
           "btn-musik",
           "btn-menu",
+          "btn-startquiz",
+          "btn-qanus",
+          "btn-qlidah",
+          "btn-qusushalus",
+          "btn-qlambung",
+          "btn-qmulut",
+          "btn-qduode",
+          "btn-qususbesar",
+          "btn-qgigi",
+          "input-qsoal4",
+          "input-qsoal5",
+          "input-qsoal6",
         ];
 
         mediaContainer.querySelectorAll("img, video").forEach((el) => {
@@ -840,19 +506,25 @@
         btnMateri2.style.display = index === 3 ? "block" : "none";
         btnMateri3.style.display = index === 3 ? "block" : "none";
         btnHome.style.display = [0, 1, 2].includes(index) ? "none" : "block";
-        btnMenu.style.display = [0, 1, 2, 3].includes(index) ? "none" : "block";
+        btnMenu.style.display = [
+          0, 1, 2, 3, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
+        ].includes(index)
+          ? "none"
+          : "block";
         btnMusik.style.display = [0, 1, 2].includes(index) ? "none" : "block";
         btnNextM1.style.display = [
-          4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 18, 19, 20,
+          4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 18, 19, 20, 22, 23, 26, 27,
+          28, 29, 30,
         ].includes(index)
           ? "block"
           : "none";
         btnBackM1.style.display = [
-          4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21,
+          4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 26,
+          27, 28, 29, 30, 31,
         ].includes(index)
           ? "block"
           : "none";
-        btnNextEnd.style.display = [12, 17, 21].includes(index)
+        btnNextEnd.style.display = [12, 17, 21, 24, 31].includes(index)
           ? "block"
           : "none";
         btnBackM2.style.display = index === 13 ? "block" : "none";
@@ -863,6 +535,21 @@
         btnjeju.style.display = index === 10 ? "block" : "none";
         btnileum.style.display = index === 10 ? "block" : "none";
         btnDyk.style.display = index === 11 ? "block" : "none";
+        //quiz//
+        btnStartQuiz.style.display = index === 25 ? "block" : "none";
+        btnqAnus.style.display = index === 26 ? "block" : "none";
+        btnqLidah.style.display = index === 26 ? "block" : "none";
+        btnqUsushalus.style.display = index === 26 ? "block" : "none";
+        btnqLambung.style.display = index === 26 ? "block" : "none";
+
+        btnqMulut.style.display = index === 27 ? "block" : "none";
+        btnqDuode.style.display = index === 27 ? "block" : "none";
+        btnqUsusbesar.style.display = index === 27 ? "block" : "none";
+        btnqGigi.style.display = index === 27 ? "block" : "none";
+
+        btnqSoal4.style.display = index === 29 ? "block" : "none";
+        btnqSoal5.style.display = index === 30 ? "block" : "none";
+        btnqSoal6.style.display = index === 31 ? "block" : "none";
         // Jika sedang di slide 1 (input nama)
         if (index === 1) {
           txtinput.value = ""; // kosongkan input saat slide dimulai
@@ -965,8 +652,14 @@
         showMedia(currentIndex);
       }
 
-      function QuizButton() {}
-      function GameButton() {}
+      function QuizButton() {
+        currentIndex = 25;
+        showMedia(currentIndex);
+      }
+      function GameButton() {
+        currentIndex = 22;
+        showMedia(currentIndex);
+      }
 
       // --- JAVASCRIPT UNTUK POPUP (LEBIH SEDERHANA) ---
       // Fungsi umum untuk membuka popup
@@ -992,27 +685,46 @@
 
       // --- PERUBAHAN: Inisialisasi Aplikasi ---
       // Jalankan setelah DOM siap
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
         // Kumpulkan semua URL gambar yang akan dimuat
         const allImageUrls = [
           // Gambar Slide
-          ...mediaList.map(item => item.src),
+          ...mediaList.map((item) => item.src),
           // Gambar Tombol
-          'ASSET/Start.png', 'ASSET/Next.png', 'ASSET/Back.png', 'ASSET/END.png',
-          'ASSET/Materi.png', 'ASSET/materi1.png', 'ASSET/materi2.png', 'ASSET/materi3.png',
-          'ASSET/Quiz.png', 'ASSET/Games.png', 'ASSET/home.png', 'ASSET/menu.png', 'ASSET/musik.png',
-          'ASSET/gigi.png', 'ASSET/lidah.png', 'ASSET/duodenum.png', 'ASSET/jejunum.png', 'ASSET/ileum.png',
-          'ASSET/DYK.png',
+          "ASSET/Start.png",
+          "ASSET/Next.png",
+          "ASSET/Back.png",
+          "ASSET/END.png",
+          "ASSET/Materi.png",
+          "ASSET/materi1.png",
+          "ASSET/materi2.png",
+          "ASSET/materi3.png",
+          "ASSET/Quiz.png",
+          "ASSET/Games.png",
+          "ASSET/home.png",
+          "ASSET/menu.png",
+          "ASSET/musik.png",
+          "ASSET/gigi.png",
+          "ASSET/lidah.png",
+          "ASSET/duodenum.png",
+          "ASSET/jejunum.png",
+          "ASSET/ileum.png",
+          "ASSET/DYK.png",
+          "ASSET/startquiz.png",
           // Gambar Popup
-          'POPUP/1.png', 'POPUP/2.png', 'POPUP/3.png', 'POPUP/4.png', 'POPUP/5.png',
-          'POPUP/6.png', 'POPUP/7.png'
+          "POPUP/1.png",
+          "POPUP/2.png",
+          "POPUP/3.png",
+          "POPUP/4.png",
+          "POPUP/5.png",
+          "POPUP/6.png",
+          "POPUP/7.png",
         ];
 
         // Mulai proses preloading
         preloadAssets(allImageUrls, onAllAssetsLoaded);
       });
       // --- AKHIR PERUBAHAN ---
-
     </script>
   </body>
 </html>
