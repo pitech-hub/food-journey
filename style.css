@@ -421,7 +421,63 @@ body {
   cursor: text;
 }
 
+/* Khusus untuk soal 3: hanya satu baris teks */
+#input-qsoal3a textarea,
+#input-qsoal3b textarea,
+#input-qsoal3c textarea,
+#input-qsoal3d textarea {
+  white-space: nowrap; /* teks hanya satu baris */
+  overflow: hidden; /* sembunyikan teks yang melebihi lebar */
+  text-overflow: ellipsis; /* tampilkan "..." jika teks terlalu panjang */
+  height: 100%; /* biar tetap sejajar */
+  line-height: 1.2em; /* sejajarkan teks vertikal */
+  resize: none; /* tidak bisa di-resize */
+  overflow-y: hidden; /* tidak bisa scroll atas-bawah */
+  overflow-x: auto; /* boleh geser kanan-kiri jika panjang */
+}
+
 /* POSISI TIAP SOAL — tinggal ubah top/left/width */
+#input-qsoal3a {
+  top: 33.5%;
+  left: 45%;
+  width: 22%;
+  height: 7%;
+  color: #ff751f;
+}
+#input-qsoal3a textarea {
+  color: #ff751f;
+}
+#input-qsoal3b {
+  top: 44.5%;
+  left: 32%;
+  width: 20%;
+  height: 7%;
+  color: #ff751f;
+}
+#input-qsoal3b textarea {
+  color: #ff751f;
+}
+#input-qsoal3c {
+  top: 56%;
+  left: 71%;
+  width: 22%;
+  height: 7%;
+  color: #ff751f;
+}
+#input-qsoal3c textarea {
+  color: #ff751f;
+}
+#input-qsoal3d {
+  top: 84%;
+  left: 45.5%;
+  width: 18%;
+  height: 7%;
+  color: #ff751f;
+}
+#input-qsoal3d textarea {
+  color: #ff751f;
+}
+
 #input-qsoal4 {
   top: 82%;
   left: 50%;
@@ -536,4 +592,146 @@ body {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+/* games */
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* UBAHAN: Di bawah titik, di atas background */
+}
+.point {
+  width: 2.2%;
+  height: 4%;
+  border-radius: 50%;
+  background: #f5b6c0;
+  position: absolute;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, background 0.3s;
+  z-index: 2; /* TAMBAHAN: Pastikan titik di atas canvas */
+}
+
+.point.active {
+  background: #fedae0;
+  transform: scale(1.3);
+}
+
+.point:hover {
+  background: #e5405c;
+  transform: scale(1.2);
+}
+
+#p1 {
+  top: 26%;
+  left: 23.8%;
+}
+#p2 {
+  top: 38%;
+  left: 23.8%;
+}
+#p3 {
+  top: 50%;
+  left: 23.8%;
+}
+#p4 {
+  top: 62%;
+  left: 23.8%;
+}
+#p5 {
+  top: 74%;
+  left: 23.8%;
+}
+#p6 {
+  top: 86%;
+  left: 23.8%;
+}
+
+#q1 {
+  top: 29%;
+  right: 57%;
+}
+#q2 {
+  top: 39%;
+  right: 57%;
+}
+#q3 {
+  top: 49%;
+  right: 57%;
+}
+#q4 {
+  top: 59%;
+  right: 57%;
+}
+#q5 {
+  top: 69%;
+  right: 57%;
+}
+#q6 {
+  top: 79%;
+  right: 57%;
+}
+
+#reset-btn {
+  position: absolute;
+  bottom: 6%;
+  left: 8%;
+  transform: translateX(-50%);
+  padding: 1% 1%;
+  background: #e74c3c;
+  color: white;
+  font-weight: 600%;
+  border: none;
+  border-radius: 30%;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 10;
+}
+
+#reset-btn:hover {
+  background: #c0392b;
+}
+
+.video-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: auto;
+  border: 0px solid #ccc;
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+#vidanimasi1 {
+  width: 22.5%;
+  top: 59%;
+  left: 26.5%;
+}
+#vidanimasi2 {
+  width: 18.4%;
+  top: 61%;
+  left: 27.5%;
+}
+#vidanimasi3 {
+  width: 30%;
+  top: 61%;
+  left: 27.5%;
+}
+#vidanimasi4 {
+  width: 29%;
+  top: 61%;
+  left: 27.5%;
+}
+#vidanimasi5 {
+  width: 31%;
+  top: 60%;
+  left: 29%;
 }
