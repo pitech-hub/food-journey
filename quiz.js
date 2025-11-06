@@ -116,6 +116,7 @@ check3.addEventListener("click", () => {
   ];
 
   if (jawaban.some((j) => j === "")) {
+    soundWrong.play();
     showNotif("⚠️ Lengkapi semua kolom dulu!", "wrong");
     return;
   }
