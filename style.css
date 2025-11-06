@@ -210,6 +210,17 @@ body {
   width: 7%;
 }
 
+#btn-CP {
+  top: 8%;
+  left: 5%;
+  width: 5%;
+}
+#btn-PP {
+  top: 8%;
+  left: 12%;
+  width: 5%;
+}
+
 /* Tombol Materi */
 #btn-materi {
   top: 49%;
@@ -287,14 +298,14 @@ body {
 }
 
 #btn-gigi {
-  bottom: -2%;
+  bottom: 3%;
   left: 27%;
-  width: 18%;
+  width: 20%;
 }
 #btn-lidah {
-  bottom: -2%;
+  bottom: 3%;
   left: 74%;
-  width: 18%;
+  width: 20%;
 }
 
 #btn-duo {
@@ -376,6 +387,42 @@ body {
   left: 50%;
   width: 50%;
 }
+#check-soal1 {
+  top: 65%;
+  left: 10%;
+  width: 10%;
+}
+#check-soal2 {
+  top: 65%;
+  left: 10%;
+  width: 10%;
+}
+#check-soal3 {
+  top: 65%;
+  left: 10%;
+  width: 10%;
+}
+#check-game1 {
+  top: 90%;
+  left: 14%;
+  width: 5%;
+}
+/* #check-soal4 {
+  top: 95%;
+  left: 50%;
+  width: 30%;
+}
+#check-soal5 {
+  top: 95%;
+  left: 50%;
+  width: 30%;
+}
+#check-soal6 {
+  top: 95%;
+  left: 50%;
+  width: 30%;
+} */
+
 /* CLASS UMUM UNTUK SEMUA SOAL */
 @font-face {
   font-family: "Biski";
@@ -521,6 +568,24 @@ body {
   left: 50%;
 }
 
+#greeting {
+  position: absolute;
+  border: none;
+  border-radius: 0;
+  font-size: 1.1vw;
+  text-align: center;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+  font-family: "Solway", serif; /* pastikan input juga memakai Solway */
+  outline: none;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  color: #15789a;
+  top: 5.5%;
+  left: 74%;
+}
+
 /* Gaya untuk Container Popup (Overlay) */
 .popup-container {
   display: none; /* Sembunyikan secara default */
@@ -626,27 +691,27 @@ canvas {
 }
 
 #p1 {
-  top: 26%;
+  top: 29%;
   left: 23.8%;
 }
 #p2 {
-  top: 38%;
+  top: 39%;
   left: 23.8%;
 }
 #p3 {
-  top: 50%;
+  top: 49%;
   left: 23.8%;
 }
 #p4 {
-  top: 62%;
+  top: 59%;
   left: 23.8%;
 }
 #p5 {
-  top: 74%;
+  top: 69%;
   left: 23.8%;
 }
 #p6 {
-  top: 86%;
+  top: 79%;
   left: 23.8%;
 }
 
@@ -734,4 +799,594 @@ canvas {
   width: 31%;
   top: 60%;
   left: 29%;
+}
+
+/*  */
+/* Gaya makanan bulat */
+.food-list {
+  width: 6%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+  border: 1px dashed #7d7d7d;
+  z-index: 10;
+  border-radius: 50%;
+  cursor: grab;
+  overflow: hidden;
+}
+
+.food-list:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.food-list:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.food-list img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Kolom zat gizi */
+.column {
+  position: absolute;
+  top: 29%;
+  width: 5%;
+  height: 45%;
+  background-color: transparent;
+  border-radius: 10%;
+  border: 2px dashed #555;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10%; /* jarak antar slot */
+  padding: 1%;
+  padding-top: 7%;
+}
+
+/* Slot lingkaran */
+.slot {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* supaya benar-benar bulat */
+  border: 2px dashed #aaa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  transition: all 0.2s ease;
+  overflow: hidden; /* jaga gambar tetap bulat */
+  cursor: grab;
+}
+
+.slot:hover {
+  border-color: #444;
+  transform: scale(1.05);
+}
+
+/* Slot yang sudah berisi gambar */
+.slot.filled {
+  border-color: transparent;
+}
+
+/* Gambar di dalam slot */
+.slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Posisi contoh */
+#food1 {
+  top: 35%;
+  left: 15%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food2 {
+  top: 47%;
+  left: 15%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food3 {
+  top: 59%;
+  left: 15%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food4 {
+  top: 71%;
+  left: 15%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food5 {
+  top: 83%;
+  left: 15%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+
+#food6 {
+  top: 35%;
+  left: 23%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food7 {
+  top: 47%;
+  left: 23%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food8 {
+  top: 59%;
+  left: 23%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food9 {
+  top: 71%;
+  left: 23%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food10 {
+  top: 83%;
+  left: 23%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+
+#food11 {
+  top: 35%;
+  left: 77%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food12 {
+  top: 47%;
+  left: 77%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food13 {
+  top: 59%;
+  left: 77%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food14 {
+  top: 71%;
+  left: 77%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food15 {
+  top: 83%;
+  left: 77%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+
+#food16 {
+  top: 35%;
+  left: 85%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food17 {
+  top: 47%;
+  left: 85%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food18 {
+  top: 59%;
+  left: 85%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food19 {
+  top: 71%;
+  left: 85%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+#food20 {
+  top: 83%;
+  left: 85%;
+  aspect-ratio: 1 / 1; /* menjaga bentuk tetap bulat */
+}
+
+/* Kolom zat gizi */
+
+/* Posisi fix tiap kolom */
+#kolomK {
+  left: 29.2%;
+}
+#kolomP {
+  left: 37.8%;
+}
+#kolomL {
+  left: 46.4%;
+}
+#kolomV {
+  left: 55%;
+}
+#kolomM {
+  left: 63.6%;
+}
+
+.character {
+  position: absolute;
+  width: 6.5%;
+  cursor: pointer;
+  transition: transform 0.2s;
+  z-index: 9999;
+}
+
+.character:hover {
+  transform: scale(1.1);
+}
+
+.character img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#birgy {
+  top: 38%;
+  left: 21%;
+}
+#icey {
+  top: 56%;
+  left: 21%;
+}
+#pizzano {
+  top: 73.5%;
+  left: 21%;
+}
+
+/* #reset-posisi {
+  position: absolute;
+  bottom: 4%;
+  right: 29%;
+  transform: translateX(-50%);
+  padding: 1% 1%;
+  background: #e74c3c;
+  color: white;
+  font-weight: 600%;
+  border: none;
+  border-radius: 30%;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 10;
+}
+
+#reset-posisi:hover {
+  background: #c0392b;
+} */
+
+.wall {
+  position: absolute; /* Posisi absolut di dalam #labyrinth-container */
+  /* background-color: #555;
+  border: 1px solid #000; */
+  box-sizing: border-box; /* Agar border tidak menambah ukuran */
+  border-radius: 20%;
+}
+
+#wall1 {
+  top: 25%;
+  left: 15%;
+  width: 60%;
+  height: 2%;
+}
+#wall2 {
+  top: 15%;
+  left: 23%;
+  width: 2%;
+  height: 80%;
+}
+#wall3 {
+  top: 15%;
+  left: 70%;
+  width: 2%;
+  height: 80%;
+}
+#wall4 {
+  top: 87%;
+  left: 19%;
+  width: 60%;
+  height: 2%;
+}
+#wall5 {
+  top: 70.5%;
+  left: 9%;
+  width: 20%;
+  height: 10%;
+}
+#wall6 {
+  top: 53%;
+  left: 9%;
+  width: 20%;
+  height: 10%;
+}
+#wall7 {
+  top: 25%;
+  left: 9%;
+  width: 20%;
+  height: 20%;
+}
+#wall8 {
+  top: 70.3%;
+  left: 33%;
+  width: 9.5%;
+  height: 10.5%;
+}
+#wall9 {
+  top: 77%;
+  left: 39.5%;
+  width: 7%;
+  height: 3.9%;
+  border-radius: 40%;
+}
+#wall10 {
+  top: 75%;
+  left: 35.5%;
+  width: 8%;
+  height: 2%;
+}
+#wall11 {
+  /* lingkaran */
+  top: 64.5%;
+  left: 47%;
+  width: 3%;
+  height: 4%;
+  border-radius: 100%;
+}
+#wall12 {
+  top: 53%;
+  left: 33%;
+  width: 9.5%;
+  height: 10.5%;
+}
+#wall13 {
+  top: 53%;
+  left: 39.5%;
+  width: 7%;
+  height: 3.9%;
+  border-radius: 40%;
+}
+#wall14 {
+  top: 56.5%;
+  left: 35.5%;
+  width: 8%;
+  height: 2%;
+}
+#wall15 {
+  top: 33%;
+  left: 33%;
+  width: 13.6%;
+  height: 13%;
+}
+#wall16 {
+  top: 33%;
+  left: 50.3%;
+  width: 20%;
+  height: 13%;
+}
+
+#wall17 {
+  top: 70.3%;
+  left: 54.6%;
+  width: 16%;
+  height: 10.5%;
+}
+#wall18 {
+  top: 77%;
+  left: 50.5%;
+  width: 7%;
+  height: 3.9%;
+  border-radius: 40%;
+}
+#wall19 {
+  top: 75%;
+  left: 53.5%;
+  width: 8%;
+  height: 2%;
+}
+
+#wall20 {
+  top: 53%;
+  left: 54.6%;
+  width: 16%;
+  height: 10.5%;
+}
+#wall21 {
+  top: 53%;
+  left: 50.5%;
+  width: 7%;
+  height: 3.9%;
+  border-radius: 40%;
+}
+#wall22 {
+  top: 56.5%;
+  left: 53.5%;
+  width: 8%;
+  height: 2%;
+}
+
+.organ {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 10; /* pastikan di atas media */
+  width: 1%;
+}
+
+.organ:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.organ:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.organ img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#organ1 {
+  top: 49%;
+  left: 35%;
+  width: 4%;
+}
+
+#organ2 {
+  top: 84%;
+  left: 35%;
+  width: 3%;
+}
+#organ3 {
+  top: 30%;
+  left: 40%;
+  width: 3%;
+}
+#organ4 {
+  top: 84%;
+  left: 67%;
+  width: 4%;
+  /* otak */
+}
+#organ5 {
+  top: 67%;
+  left: 67%;
+  width: 4%;
+  /* otak */
+}
+#organ6 {
+  top: 84%;
+  left: 45%;
+  width: 3%;
+}
+#organ7 {
+  top: 67%;
+  left: 53.5%;
+  width: 3%;
+}
+#organ8 {
+  top: 67%;
+  left: 43.5%;
+  width: 3%;
+}
+#organ9 {
+  top: 54%;
+  left: 48.5%;
+  width: 2.4%;
+}
+#organ10 {
+  top: 50%;
+  left: 67%;
+  width: 4%;
+}
+#organ11 {
+  top: 42%;
+  left: 48.5%;
+  width: 3%;
+}
+#organ12 {
+  top: 30%;
+  left: 54%;
+  width: 4%;
+}
+#organ13 {
+  top: 30%;
+  left: 67%;
+  width: 4%;
+}
+#organ14 {
+  top: 52%;
+  left: 78%;
+  width: 11%;
+}
+
+/* Tombol cek jawaban */
+.btn-check {
+  position: absolute;
+  width: 8%;
+  top: 90%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 20;
+  transition: transform 0.3s ease;
+}
+.btn-check:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+/* Suara efek hilang (tidak tampak visual) */
+audio {
+  display: none;
+}
+
+.notif {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 25px 40px;
+  font-family: "Comic Sans MS", cursive;
+  font-size: 1.8em;
+  color: #222;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 999;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.notif.show {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.notif.correct {
+  background: #a6ff8f;
+  color: #006400;
+  animation: popCorrect 0.6s ease;
+}
+
+.notif.wrong {
+  background: #ff8f8f;
+  color: #640000;
+  animation: popWrong 0.6s ease;
+}
+
+@keyframes popCorrect {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes popWrong {
+  0% {
+    transform: translate(-50%, -50%) rotate(-10deg) scale(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(10deg) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+}
+
+.correct-line {
+  filter: drop-shadow(0 0 6px #2ecc71);
+}
+
+.wrong-line {
+  filter: drop-shadow(0 0 6px #e74c3c);
 }
