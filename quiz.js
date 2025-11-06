@@ -55,15 +55,15 @@ Object.keys(soalGroups).forEach((soal) => {
     if (!btn) return;
     const img = btn.querySelector("img");
     const originalSrc = img.getAttribute("src");
-    const klikSrc = originalSrc.replace(".png", "klik.png");
+    const klikSrc = originalSrc.replace(".webp", "klik.webp");
 
     btn.addEventListener("click", () => {
       ids.forEach((otherId) => {
         const other = document.getElementById(otherId);
         if (!other) return;
         const oImg = other.querySelector("img");
-        if (oImg.src.endsWith("klik.png"))
-          oImg.src = oImg.src.replace("klik.png", ".png");
+        if (oImg.src.endsWith("klik.webp"))
+          oImg.src = oImg.src.replace("klik.webp", ".webp");
       });
       img.src = klikSrc;
       jawabanUser[soal] = id;
