@@ -27,9 +27,9 @@
         <!-- Tombol START -->
         <div id="btn-start" class="btn">
           <img
-            src="ASSET/Start.png"
+            src="ASSET/Start.webp"
             alt="Start Button"
-            onclick="startJourney()"
+            onclick="startJourney(); toggleMusic();"
           />
         </div>
 
@@ -46,24 +46,44 @@
           id="text-input"
           class="input-box"
           placeholder="ENTER YOUR NAME"
+          maxlength="7"
+          oninput="handleInput(this)"
           oninput="this.value = this.value.toUpperCase().replace(/[^A-Z\s]/g, '')"
         />
 
+        <div id="greeting"></div>
+
+        <div id="btn-CP" class="btn">
+          <img
+            src="ASSET/CP.webp"
+            alt="CP Button"
+            onclick="openPopup('popup-cp-container')"
+          />
+        </div>
+
+        <div id="btn-PP" class="btn">
+          <img
+            src="ASSET/PP.webp"
+            alt="PP Button"
+            onclick="openPopup('popup-pp-container')"
+          />
+        </div>
+
         <!-- Tombol NEXT -->
         <div id="btn-next" class="btn">
-          <img src="ASSET/Next.png" alt="Next Button" onclick="nextMedia()" />
+          <img src="ASSET/Next.webp" alt="Next Button" onclick="nextMedia()" />
         </div>
 
         <div id="btn-materi" class="btn">
           <img
-            src="ASSET/Materi.png"
+            src="ASSET/Materi.webp"
             alt="Materi Button"
             onclick="MateriButton()"
           />
         </div>
         <div id="btn-materi1" class="btn">
           <img
-            src="ASSET/materi1.png"
+            src="ASSET/materi1.webp"
             alt="Materi1 Button"
             onclick="Materi1Button()"
           />
@@ -71,7 +91,7 @@
 
         <div id="btn-materi2" class="btn">
           <img
-            src="ASSET/materi2.png"
+            src="ASSET/materi2.webp"
             alt="Materi2 Button"
             onclick="Materi2Button()"
           />
@@ -79,64 +99,69 @@
 
         <div id="btn-materi3" class="btn">
           <img
-            src="ASSET/materi3.png"
+            src="ASSET/materi3.webp"
             alt="Materi3 Button"
             onclick="Materi3Button()"
           />
         </div>
 
         <div id="btn-quiz" class="btn">
-          <img src="ASSET/Quiz.png" alt="Quiz Button" onclick="QuizButton()" />
+          <img src="ASSET/Quiz.webp" alt="Quiz Button" onclick="QuizButton()" />
         </div>
 
         <div id="btn-game" class="btn">
-          <img src="ASSET/Games.png" alt="Game Button" onclick="GameButton()" />
+          <img
+            src="ASSET/Games.webp"
+            alt="Game Button"
+            onclick="GameButton()"
+          />
         </div>
 
         <div id="btn-nextm1" class="btn">
           <img
-            src="ASSET/Next.png"
+            src="ASSET/Next.webp"
             alt="Next Button"
             onclick="nextMedia(); playClickSound();"
           />
         </div>
         <div id="btn-backm1" class="btn">
           <img
-            src="ASSET/Back.png"
+            src="ASSET/Back.webp"
             alt="Back Button"
             onclick="backMedia(); playClickSound();"
           />
         </div>
         <div id="btn-backm2" class="btn">
           <img
-            src="ASSET/Back.png"
+            src="ASSET/Back.webp"
             alt="Back Button"
             onclick="backMedia2(); playClickSound();"
           />
         </div>
         <div id="btn-backm3" class="btn">
           <img
-            src="ASSET/Back.png"
+            src="ASSET/Back.webp"
             alt="Back Button"
             onclick="backMedia3(); playClickSound();"
           />
         </div>
         <div id="btn-nextend" class="btn">
           <img
-            src="ASSET/END.png"
+            src="ASSET/END.webp"
             alt="Next Button"
             onclick="playClickSound();"
           />
         </div>
         <div id="btn-home" class="btn">
-          <img src="ASSET/home.png" alt="Home Button" onclick="backHome()" />
+          <img src="ASSET/home.webp" alt="Home Button" onclick="backHome()" />
         </div>
         <div id="btn-menu" class="btn">
-          <img src="ASSET/menu.png" alt="menu Button" onclick="backMenu()" />
+          <img src="ASSET/menu.webp" alt="menu Button" onclick="backMenu()" />
         </div>
         <div id="btn-musik" class="btn">
           <img
-            src="ASSET/musik.png"
+            id="img-musik"
+            src="ASSET/musik.webp"
             alt="Musik Button"
             onclick="toggleMusic()"
           />
@@ -145,42 +170,42 @@
 
         <div id="btn-gigi" class="btn">
           <img
-            src="ASSET/gigi.png"
+            src="ASSET/gigi.webp"
             alt="Gigi Button"
             onclick="openPopup('popup-gigi-container')"
           />
         </div>
         <div id="btn-lidah" class="btn">
           <img
-            src="ASSET/lidah.png"
+            src="ASSET/lidah.webp"
             alt="Lidah Button"
             onclick="openPopup('popup-lidah-container')"
           />
         </div>
         <div id="btn-duo" class="btn">
           <img
-            src="ASSET/duodenum.png"
+            src="ASSET/duodenum.webp"
             alt="Duodenum Button"
             onclick="openPopup('popup-duo-container')"
           />
         </div>
         <div id="btn-jeju" class="btn">
           <img
-            src="ASSET/jejunum.png"
+            src="ASSET/jejunum.webp"
             alt="Jejunum Button"
             onclick="openPopup('popup-jeju-container')"
           />
         </div>
         <div id="btn-ileum" class="btn">
           <img
-            src="ASSET/ileum.png"
+            src="ASSET/ileum.webp"
             alt="Ileum Button"
             onclick="openPopup('popup-ileum-container')"
           />
         </div>
         <div id="btn-dyk" class="btn">
           <img
-            src="ASSET/DYK.png"
+            src="ASSET/DYK.webp"
             alt="DYK Button"
             onclick="openPopup('popup-dyk-container')"
           />
@@ -189,36 +214,42 @@
         <!-- quiz -->
         <div id="btn-startquiz" class="btn">
           <img
-            src="ASSET/startquiz.png"
+            src="ASSET/startquiz.webp"
             alt="START QUIZ Button"
             onclick="nextMedia()"
           />
         </div>
         <!-- soal 1 -->
         <div id="btn-qanus" class="btn">
-          <img src="ASSET/qanus.png" alt="Anus Button" />
+          <img src="ASSET/qanus.webp" alt="Anus Button" />
         </div>
         <div id="btn-qlidah" class="btn">
-          <img src="ASSET/qlidah.png" alt="Lidah Button" />
+          <img src="ASSET/qlidah.webp" alt="Lidah Button" />
         </div>
         <div id="btn-qusushalus" class="btn">
-          <img src="ASSET/qusushalus.png" alt="Usus Halus Button" />
+          <img src="ASSET/qusushalus.webp" alt="Usus Halus Button" />
         </div>
         <div id="btn-qlambung" class="btn">
-          <img src="ASSET/qlambung.png" alt="Lambung Button" />
+          <img src="ASSET/qlambung.webp" alt="Lambung Button" />
+        </div>
+        <div id="check-soal1" class="btn">
+          <img src="ASSET/check.webp" alt="Cek Jawaban Soal 1" />
         </div>
         <!-- soal 2 -->
         <div id="btn-qgigi" class="btn">
-          <img src="ASSET/qgigi.png" alt="Gigi Button" />
+          <img src="ASSET/qgigi.webp" alt="Gigi Button" />
         </div>
         <div id="btn-qususbesar" class="btn">
-          <img src="ASSET/qususbesar.png" alt="Usus Besar Button" />
+          <img src="ASSET/qususbesar.webp" alt="Usus Besar Button" />
         </div>
         <div id="btn-qduode" class="btn">
-          <img src="ASSET/qduode.png" alt="Duodenum Button" />
+          <img src="ASSET/qduode.webp" alt="Duodenum Button" />
         </div>
         <div id="btn-qmulut" class="btn">
-          <img src="ASSET/qmulut.png" alt="Mulut Button" />
+          <img src="ASSET/qmulut.webp" alt="Mulut Button" />
+        </div>
+        <div id="check-soal2" class="btn">
+          <img src="ASSET/check.webp" alt="Cek Jawaban Soal 2" />
         </div>
         <!-- soal 3 isian -->
         <div id="input-qsoal3a" class="isian">
@@ -233,26 +264,38 @@
         <div id="input-qsoal3d" class="isian">
           <textarea placeholder=""></textarea>
         </div>
+        <div id="check-soal3" class="btn">
+          <img src="ASSET/check.webp" alt="Cek Jawaban Soal 3" />
+        </div>
 
         <!-- soal 4 isian -->
         <div id="input-qsoal4" class="isian">
-          <img src="ASSET/qkosongan.png" alt="" />
+          <img src="ASSET/qkosongan.webp" alt="" />
           <textarea placeholder="Ketik jawaban di sini..."></textarea>
         </div>
+        <!-- <div id="check-soal4" class="btn">
+          <img src="ASSET/check.webp" alt="Cek Jawaban Soal 4" />
+        </div> -->
         <!-- soal 5 isian -->
         <div id="input-qsoal5" class="isian">
-          <img src="ASSET/qkosongan.png" alt="" />
+          <img src="ASSET/qkosongan.webp" alt="" />
           <textarea placeholder="Ketik jawaban di sini..."></textarea>
         </div>
+        <!-- <div id="check-soal5" class="btn">
+          <img src="ASSET/check.webp" alt="Cek Jawaban Soal 5" />
+        </div> -->
         <!-- soal 6 isian -->
         <div id="input-qsoal6" class="isian">
-          <img src="ASSET/qkosongan.png" alt="" />
+          <img src="ASSET/qkosongan.webp" alt="" />
           <textarea placeholder="Ketik jawaban di sini..."></textarea>
         </div>
-
+        <!-- <div id="check-soal6" class="btn">
+          <img src="ASSET/check.webp" alt="Cek Jawaban Soal 6" />
+        </div> -->
         <!--  -->
 
         <!-- GAMES -->
+        <!-- GAME 1 -->
         <canvas id="canvas" width="800" height="840"></canvas>
 
         <!-- Titik kiri -->
@@ -272,6 +315,200 @@
         <div class="point" id="q6"></div>
 
         <button id="reset-btn">🔄</button>
+        <div id="check-game1" class="btn">
+          <img src="ASSET/check.webp" alt="Cek Game 1" />
+        </div>
+
+        <!-- GAME 2 -->
+        <div class="food-list" id="food1">
+          <img src="makanan/1.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food2">
+          <img src="makanan/2.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food3">
+          <img src="makanan/3.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food4">
+          <img src="makanan/4.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food5">
+          <img src="makanan/5.webp" class="food" draggable="true" />
+        </div>
+
+        <div class="food-list" id="food6">
+          <img src="makanan/6.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food7">
+          <img src="makanan/7.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food8">
+          <img src="makanan/8.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food9">
+          <img src="makanan/9.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food10">
+          <img src="makanan/10.webp" class="food" draggable="true" />
+        </div>
+
+        <div class="food-list" id="food11">
+          <img src="makanan/11.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food12">
+          <img src="makanan/12.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food13">
+          <img src="makanan/13.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food14">
+          <img src="makanan/14.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food15">
+          <img src="makanan/15.webp" class="food" draggable="true" />
+        </div>
+
+        <div class="food-list" id="food16">
+          <img src="makanan/16.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food17">
+          <img src="makanan/17.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food18">
+          <img src="makanan/18.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food19">
+          <img src="makanan/19.webp" class="food" draggable="true" />
+        </div>
+        <div class="food-list" id="food20">
+          <img src="makanan/20.webp" class="food" draggable="true" />
+        </div>
+
+        <!-- Kolom zat gizi -->
+        <div
+          class="column"
+          id="kolomK"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          class="column"
+          id="kolomP"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          class="column"
+          id="kolomL"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          class="column"
+          id="kolomV"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          class="column"
+          id="kolomM"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+
+        <!-- GAME 3 -->
+
+        <div class="wall" id="wall1"></div>
+        <div class="wall" id="wall2"></div>
+        <div class="wall" id="wall3"></div>
+        <div class="wall" id="wall4"></div>
+        <div class="wall" id="wall5"></div>
+        <div class="wall" id="wall6"></div>
+        <div class="wall" id="wall7"></div>
+        <div class="wall" id="wall8"></div>
+        <div class="wall" id="wall9"></div>
+        <div class="wall" id="wall10"></div>
+        <div class="wall" id="wall11"></div>
+        <div class="wall" id="wall12"></div>
+        <div class="wall" id="wall13"></div>
+        <div class="wall" id="wall14"></div>
+        <div class="wall" id="wall15"></div>
+        <div class="wall" id="wall16"></div>
+
+        <div class="wall" id="wall17"></div>
+        <div class="wall" id="wall18"></div>
+        <div class="wall" id="wall19"></div>
+
+        <div class="wall" id="wall20"></div>
+        <div class="wall" id="wall21"></div>
+        <div class="wall" id="wall22"></div>
+
+        <div class="character" id="birgy">
+          <img
+            src="ASSET/birgy.webp"
+            class="birgy"
+            onclick="selectCharacter('birgy')"
+          />
+        </div>
+        <div class="character" id="icey">
+          <img
+            src="ASSET/icey.webp"
+            class="icey"
+            onclick="selectCharacter('icey')"
+          />
+        </div>
+        <div class="character" id="pizzano">
+          <img
+            src="ASSET/pizza.webp"
+            class="pizzano"
+            onclick="selectCharacter('pizzano')"
+          />
+        </div>
+
+        <div id="organ1" class="organ">
+          <img src="ASSET/33.webp" />
+        </div>
+        <div id="organ2" class="organ">
+          <img src="ASSET/34.webp" />
+        </div>
+        <div id="organ3" class="organ">
+          <img src="ASSET/35.webp" />
+        </div>
+        <div id="organ4" class="organ">
+          <img src="ASSET/36.webp" />
+        </div>
+        <div id="organ5" class="organ">
+          <img src="ASSET/37.webp" />
+        </div>
+        <div id="organ6" class="organ">
+          <img src="ASSET/38.webp" />
+        </div>
+        <div id="organ7" class="organ">
+          <img src="ASSET/39.webp" />
+        </div>
+        <div id="organ8" class="organ">
+          <img src="ASSET/40.webp" />
+        </div>
+        <div id="organ9" class="organ">
+          <img src="ASSET/41.webp" />
+        </div>
+        <div id="organ10" class="organ">
+          <img src="ASSET/42.webp" />
+        </div>
+        <div id="organ11" class="organ">
+          <img src="ASSET/43.webp" />
+        </div>
+        <div id="organ12" class="organ">
+          <img src="ASSET/44.webp" />
+        </div>
+        <div id="organ13" class="organ">
+          <img src="ASSET/45.webp" />
+        </div>
+        <div id="organ14" class="organ" onclick="resetPosition()">
+          <img src="ASSET/46.webp" />
+        </div>
+
+        <!--  -->
 
         <!-- animasi -->
         <div class="video-container" id="vidanimasi1">
@@ -332,10 +569,29 @@
       </div>
     </div>
     <!-- SEMUA POPUP DIPINDAHKAN KE SINI, DI LUAR KONTAINER UTAMA -->
+
     <!-- Popup Gigi -->
+    <div id="popup-cp-container" class="popup-container">
+      <div class="popup-content">
+        <img src="POPUP/40.webp" alt="Gambar cp" />
+        <span class="popup-close-btn" onclick="closePopup('popup-cp-container')"
+          >&times;</span
+        >
+      </div>
+    </div>
+
+    <div id="popup-pp-container" class="popup-container">
+      <div class="popup-content">
+        <img src="POPUP/41.webp" alt="Gambar pp" />
+        <span class="popup-close-btn" onclick="closePopup('popup-pp-container')"
+          >&times;</span
+        >
+      </div>
+    </div>
+
     <div id="popup-gigi-container" class="popup-container">
       <div class="popup-content">
-        <img src="POPUP/1.png" alt="Gambar Gigi" />
+        <img src="POPUP/1.webp" alt="Gambar Gigi" />
         <span
           class="popup-close-btn"
           onclick="closePopup('popup-gigi-container')"
@@ -347,7 +603,7 @@
     <!-- Popup Lidah -->
     <div id="popup-lidah-container" class="popup-container">
       <div class="popup-content">
-        <img src="POPUP/2.png" alt="Gambar Lidah" />
+        <img src="POPUP/2.webp" alt="Gambar Lidah" />
         <span
           class="popup-close-btn"
           onclick="closePopup('popup-lidah-container')"
@@ -359,7 +615,7 @@
     <!-- Popup Duodenum -->
     <div id="popup-duo-container" class="popup-container">
       <div class="popup-content">
-        <img src="POPUP/3.png" alt="Gambar Duodenum" />
+        <img src="POPUP/3.webp" alt="Gambar Duodenum" />
         <span
           class="popup-close-btn"
           onclick="closePopup('popup-duo-container')"
@@ -371,7 +627,7 @@
     <!-- Popup Jejunum -->
     <div id="popup-jeju-container" class="popup-container">
       <div class="popup-content">
-        <img src="POPUP/4.png" alt="Gambar Jejunum" />
+        <img src="POPUP/4.webp" alt="Gambar Jejunum" />
         <span
           class="popup-close-btn"
           onclick="closePopup('popup-jeju-container')"
@@ -383,7 +639,7 @@
     <!-- Popup Ileum -->
     <div id="popup-ileum-container" class="popup-container">
       <div class="popup-content">
-        <img src="POPUP/5.png" alt="Gambar Ileum" />
+        <img src="POPUP/5.webp" alt="Gambar Ileum" />
         <span
           class="popup-close-btn"
           onclick="closePopup('popup-ileum-container')"
@@ -391,7 +647,7 @@
         >
         <div id="btn-dyk2" class="btn">
           <img
-            src="ASSET/DYK.png"
+            src="ASSET/DYK.webp"
             alt="DYK Button"
             onclick="openPopup('popup-dyk2-container')"
           />
@@ -402,7 +658,7 @@
     <!-- Popup DYK -->
     <div id="popup-dyk-container" class="popup-container">
       <div class="popup-content">
-        <img src="POPUP/6.png" alt="Gambar DYK" />
+        <img src="POPUP/6.webp" alt="Gambar DYK" />
         <span
           class="popup-close-btn"
           onclick="closePopup('popup-dyk-container')"
@@ -413,7 +669,7 @@
     <!-- Popup DYK2 -->
     <div id="popup-dyk2-container" class="popup-container">
       <div class="popup-content">
-        <img src="POPUP/7.png" alt="Gambar DYK" />
+        <img src="POPUP/7.webp" alt="Gambar DYK" />
         <span
           class="popup-close-btn"
           onclick="closePopup('popup-dyk2-container')"
@@ -422,833 +678,29 @@
       </div>
     </div>
 
+    <!-- Notifikasi -->
+    <div id="notif" class="notif"></div>
+
+    <!-- Suara Efek -->
+    <audio
+      id="sound-correct"
+      src="audio/sound-correct.mp3"
+      preload="auto"
+    ></audio>
+    <audio id="sound-wrong" src="audio/sound-wrong.wav" preload="auto"></audio>
+
     <audio id="click-sound" src="audio/Pageturn.mp3" preload="auto"></audio>
     <audio id="bgMusic" src="audio/backgroundmusic.mp3" loop></audio>
-    <script>
-      // --- PERUBAHAN: Fungsi Preloader Awal ---
-      function preloadAssets(imageUrls, callback) {
-        let loadedImages = 0;
-        const totalImages = imageUrls.length;
-        const progressBar = document.getElementById("initial-progress-bar");
-        const percentageText = document.getElementById("loading-percentage");
-
-        const updateProgress = () => {
-          const percentage = Math.round((loadedImages / totalImages) * 100);
-          progressBar.style.width = percentage + "%";
-          percentageText.textContent = percentage + "%";
-        };
-
-        for (let i = 0; i < totalImages; i++) {
-          const img = new Image();
-          img.src = imageUrls[i];
-
-          img.onload = () => {
-            loadedImages++;
-            updateProgress();
-            if (loadedImages === totalImages) {
-              setTimeout(callback, 500); // Beri jeda kecil agar 100% terlihat
-            }
-          };
-
-          img.onerror = () => {
-            loadedImages++; // Tetap hitung agar tidak macet
-            updateProgress();
-            console.error("Gagal memuat gambar: " + imageUrls[i]);
-            if (loadedImages === totalImages) {
-              setTimeout(callback, 500);
-            }
-          };
-        }
-      }
-
-      // Fungsi yang dijalankan setelah semua aset dimuat
-      function onAllAssetsLoaded() {
-        // Sembunyikan loader awal
-        document.getElementById("initial-loader-container").style.display =
-          "none";
-        // Tampilkan kontainer utama aplikasi
-        document.getElementById("slide-container").style.display = "flex";
-        // Jalankan logika awal aplikasi
-        showMedia(0);
-      }
-      // --- AKHIR PERUBAHAN ---
-
-      const mediaList = [
-        { type: "image", src: "IMG/1.png" },
-        { type: "image", src: "IMG/2.png" },
-        { type: "image", src: "IMG/3.png" },
-        { type: "image", src: "IMG/4.png" },
-        { type: "image", src: "IMG/5.png" },
-        { type: "image", src: "IMG/6.png" },
-        { type: "image", src: "IMG/7.png" },
-        { type: "image", src: "IMG/10.png" },
-        { type: "image", src: "IMG/11.png" },
-        { type: "image", src: "IMG/12.png" },
-        { type: "image", src: "IMG/13.png" },
-        { type: "image", src: "IMG/18.png" },
-        { type: "image", src: "IMG/20.png" },
-        { type: "image", src: "IMG/21.png" },
-        { type: "image", src: "IMG/22.png" },
-        { type: "image", src: "IMG/23.png" },
-        { type: "image", src: "IMG/24.png" },
-        { type: "image", src: "IMG/25.png" },
-        { type: "image", src: "IMG/26.png" },
-        { type: "image", src: "IMG/27.png" },
-        { type: "image", src: "IMG/28.png" },
-        { type: "image", src: "IMG/29.png" },
-        //game
-        { type: "image", src: "IMG/30.png" }, // 22
-        { type: "image", src: "IMG/31.png" },
-        { type: "image", src: "IMG/32.png" },
-        //quiz
-        { type: "image", src: "IMG/33.png" }, // 25
-        { type: "image", src: "IMG/34.png" },
-        { type: "image", src: "IMG/35.png" },
-        { type: "image", src: "IMG/36.png" },
-        { type: "image", src: "IMG/37.png" },
-        { type: "image", src: "IMG/38.png" },
-        { type: "image", src: "IMG/39.png" },
-        //
-        { type: "video", src: "Animasi/1.mp4" }, // Tambahkan video di indeks 4
-        { type: "video", src: "Animasi/2.mp4" },
-        { type: "video", src: "Animasi/3.mp4" },
-        { type: "video", src: "Animasi/4.mp4" },
-        { type: "video", src: "Animasi/5.mp4" },
-      ];
-
-      let currentIndex = 0;
-
-      function showMedia(index) {
-        const mediaContainer = document.getElementById("media-container");
-        const btnStart = document.getElementById("btn-start");
-        const btnNext = document.getElementById("btn-next");
-        const txtinput = document.getElementById("text-input");
-        const btnMateri = document.getElementById("btn-materi");
-        const btnMateri1 = document.getElementById("btn-materi1");
-        const btnMateri2 = document.getElementById("btn-materi2");
-        const btnMateri3 = document.getElementById("btn-materi3");
-        const btnQuiz = document.getElementById("btn-quiz");
-        const btnGame = document.getElementById("btn-game");
-        const btnNextM1 = document.getElementById("btn-nextm1");
-        const btnBackM1 = document.getElementById("btn-backm1");
-        const btnBackM2 = document.getElementById("btn-backm2");
-        const btnBackM3 = document.getElementById("btn-backm3");
-        const btnNextEnd = document.getElementById("btn-nextend");
-        const btnGigi = document.getElementById("btn-gigi");
-        const btnLidah = document.getElementById("btn-lidah");
-        const btnduo = document.getElementById("btn-duo");
-        const btnjeju = document.getElementById("btn-jeju");
-        const btnileum = document.getElementById("btn-ileum");
-        const btnDyk = document.getElementById("btn-dyk");
-        const btnHome = document.getElementById("btn-home");
-        const btnMenu = document.getElementById("btn-menu");
-        const btnMusik = document.getElementById("btn-musik");
-        const btnStartQuiz = document.getElementById("btn-startquiz");
-        const btnqLambung = document.getElementById("btn-qlambung");
-        const btnqUsushalus = document.getElementById("btn-qusushalus");
-        const btnqLidah = document.getElementById("btn-qlidah");
-        const btnqAnus = document.getElementById("btn-qanus");
-        const btnqMulut = document.getElementById("btn-qmulut");
-        const btnqDuode = document.getElementById("btn-qduode");
-        const btnqUsusbesar = document.getElementById("btn-qususbesar");
-        const btnqGigi = document.getElementById("btn-qgigi");
-        const btnqSoal3a = document.getElementById("input-qsoal3a");
-        const btnqSoal3b = document.getElementById("input-qsoal3b");
-        const btnqSoal3c = document.getElementById("input-qsoal3c");
-        const btnqSoal3d = document.getElementById("input-qsoal3d");
-        const btnqSoal4 = document.getElementById("input-qsoal4");
-        const btnqSoal5 = document.getElementById("input-qsoal5");
-        const btnqSoal6 = document.getElementById("input-qsoal6");
-
-        const p1 = document.getElementById("p1");
-        const p2 = document.getElementById("p2");
-        const p3 = document.getElementById("p3");
-        const p4 = document.getElementById("p4");
-        const p5 = document.getElementById("p5");
-        const p6 = document.getElementById("p6");
-
-        const q1 = document.getElementById("q1");
-        const q2 = document.getElementById("q2");
-        const q3 = document.getElementById("q3");
-        const q4 = document.getElementById("q4");
-        const q5 = document.getElementById("q5");
-        const q6 = document.getElementById("q6");
-
-        const animasi1 = document.getElementById("vidanimasi1");
-        const animasi1x = document.getElementById("video1");
-        const animasi2 = document.getElementById("vidanimasi2");
-        const animasi2x = document.getElementById("video2");
-        const animasi3 = document.getElementById("vidanimasi3");
-        const animasi3x = document.getElementById("video3");
-        const animasi4 = document.getElementById("vidanimasi4");
-        const animasi4x = document.getElementById("video4");
-        const animasi5 = document.getElementById("vidanimasi5");
-        const animasi5x = document.getElementById("video5");
-
-        // Hapus media lama (kecuali tombol)
-        const excludedIds = [
-          "btn-start",
-          "btn-next",
-          "btn-materi",
-          "btn-materi1",
-          "btn-materi2",
-          "btn-materi3",
-          "btn-quiz",
-          "btn-game",
-          "btn-nextm1",
-          "btn-backm1",
-          "btn-backm2",
-          "btn-backm3",
-          "btn-nextend",
-          "btn-gigi",
-          "btn-lidah",
-          "btn-duo",
-          "btn-jeju",
-          "btn-ileum",
-          "btn-dyk",
-          "popup-gigi-container",
-          "btn-dyk2",
-          "btn-home",
-          "btn-musik",
-          "btn-menu",
-          "btn-startquiz",
-          "btn-qanus",
-          "btn-qlidah",
-          "btn-qusushalus",
-          "btn-qlambung",
-          "btn-qmulut",
-          "btn-qduode",
-          "btn-qususbesar",
-          "btn-qgigi",
-          "input-qsoal3a",
-          "input-qsoal3b",
-          "input-qsoal3c",
-          "input-qsoal3d",
-          "input-qsoal4",
-          "input-qsoal5",
-          "input-qsoal6",
-          "vidanimasi1", // Tambahkan ini
-          "video1",
-          "video2",
-          "video3",
-          "video4",
-          "video5",
-        ];
-
-        mediaContainer.querySelectorAll("img, video").forEach((el) => {
-          // Cek apakah ID-nya atau ID parent-nya termasuk daftar yang dikecualikan
-          const parentId = el.closest("button")?.id || el.parentElement?.id;
-          if (!excludedIds.includes(el.id) && !excludedIds.includes(parentId)) {
-            el.remove();
-          }
-        });
-
-        const currentMedia = mediaList[index];
-        const mediaElement = document.createElement(
-          currentMedia.type === "video" ? "video" : "img"
-        );
-        mediaElement.src = currentMedia.src;
-        if (currentMedia.type === "video") {
-          mediaElement.controls = true;
-          mediaElement.autoplay = true;
-          mediaElement.loop = true;
-          mediaElement.muted = true;
-        }
-
-        // Tambahkan media ke container
-        mediaContainer.insertBefore(mediaElement, btnStart);
-
-        // Tampilkan tombol sesuai keadaan (tetap format aslimu)
-        btnStart.style.display = index === 0 ? "block" : "none";
-        btnNext.style.display = index === 1 ? "block" : "none";
-        txtinput.style.display = index === 1 ? "block" : "none";
-        btnMateri.style.display = index === 2 ? "block" : "none"; // ✅ tampil mulai slide ke-3
-        btnQuiz.style.display = index === 2 ? "block" : "none";
-        btnGame.style.display = index === 2 ? "block" : "none";
-        btnMateri1.style.display = index === 3 ? "block" : "none";
-        btnMateri2.style.display = index === 3 ? "block" : "none";
-        btnMateri3.style.display = index === 3 ? "block" : "none";
-        btnHome.style.display = [0, 1, 2].includes(index) ? "none" : "block";
-        btnMenu.style.display = [
-          0, 1, 2, 3, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
-        ].includes(index)
-          ? "none"
-          : "block";
-        btnMusik.style.display = [0, 1, 2].includes(index) ? "none" : "block";
-        btnNextM1.style.display = [
-          4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 18, 19, 20, 22, 23, 26, 27,
-          28, 29, 30,
-        ].includes(index)
-          ? "block"
-          : "none";
-        btnBackM1.style.display = [
-          4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 26,
-          27, 28, 29, 30, 31,
-        ].includes(index)
-          ? "block"
-          : "none";
-        btnNextEnd.style.display = [12, 17, 21, 24, 31].includes(index)
-          ? "block"
-          : "none";
-        btnBackM2.style.display = index === 13 ? "block" : "none";
-        btnBackM3.style.display = index === 18 ? "block" : "none";
-        btnGigi.style.display = index === 6 ? "block" : "none";
-        btnLidah.style.display = index === 6 ? "block" : "none";
-        btnduo.style.display = index === 10 ? "block" : "none";
-        btnjeju.style.display = index === 10 ? "block" : "none";
-        btnileum.style.display = index === 10 ? "block" : "none";
-        btnDyk.style.display = index === 11 ? "block" : "none";
-        //quiz//
-        btnStartQuiz.style.display = index === 25 ? "block" : "none";
-        btnqAnus.style.display = index === 26 ? "block" : "none";
-        btnqLidah.style.display = index === 26 ? "block" : "none";
-        btnqUsushalus.style.display = index === 26 ? "block" : "none";
-        btnqLambung.style.display = index === 26 ? "block" : "none";
-
-        btnqMulut.style.display = index === 27 ? "block" : "none";
-        btnqDuode.style.display = index === 27 ? "block" : "none";
-        btnqUsusbesar.style.display = index === 27 ? "block" : "none";
-        btnqGigi.style.display = index === 27 ? "block" : "none";
-        btnqSoal3a.style.display = index === 28 ? "block" : "none";
-        btnqSoal3b.style.display = index === 28 ? "block" : "none";
-        btnqSoal3c.style.display = index === 28 ? "block" : "none";
-        btnqSoal3d.style.display = index === 28 ? "block" : "none";
-        btnqSoal4.style.display = index === 29 ? "block" : "none";
-        btnqSoal5.style.display = index === 30 ? "block" : "none";
-        btnqSoal6.style.display = index === 31 ? "block" : "none";
-
-        p1.style.display = index === 22 ? "block" : "none";
-        p2.style.display = index === 22 ? "block" : "none";
-        p3.style.display = index === 22 ? "block" : "none";
-        p4.style.display = index === 22 ? "block" : "none";
-        p5.style.display = index === 22 ? "block" : "none";
-        p6.style.display = index === 22 ? "block" : "none";
-
-        q1.style.display = index === 22 ? "block" : "none";
-        q2.style.display = index === 22 ? "block" : "none";
-        q3.style.display = index === 22 ? "block" : "none";
-        q4.style.display = index === 22 ? "block" : "none";
-        q5.style.display = index === 22 ? "block" : "none";
-        q6.style.display = index === 22 ? "block" : "none";
-
-        resetBtn.style.display = index === 22 ? "block" : "none";
-        canvas.style.display = index === 22 ? "block" : "none";
-
-        animasi1.style.display = index === 4 ? "block" : "none";
-        animasi1x.style.display = index === 4 ? "block" : "none";
-        animasi2.style.display = index === 7 ? "block" : "none";
-        animasi2x.style.display = index === 7 ? "block" : "none";
-        animasi3.style.display = index === 8 ? "block" : "none";
-        animasi3x.style.display = index === 8 ? "block" : "none";
-        animasi4.style.display = index === 9 ? "block" : "none";
-        animasi4x.style.display = index === 9 ? "block" : "none";
-        animasi5.style.display = index === 11 ? "block" : "none";
-        animasi5x.style.display = index === 11 ? "block" : "none";
-
-        // Jika sedang di slide 1 (input nama)
-        if (index === 1) {
-          txtinput.value = ""; // kosongkan input saat slide dimulai
-          btnNext.style.display = "none"; // sembunyikan tombol next sampai user isi teks
-
-          txtinput.addEventListener("input", () => {
-            btnNext.style.display =
-              txtinput.value.trim() !== "" ? "block" : "none";
-          });
-        }
-      }
-
-      function nextMedia() {
-        if (currentIndex < mediaList.length - 1) {
-          currentIndex++;
-          showMedia(currentIndex);
-        } else {
-          alert("Perjalanan selesai!");
-        }
-      }
-
-      function backMedia() {
-        if (currentIndex > 0) {
-          currentIndex--;
-          showMedia(currentIndex);
-        }
-      }
-
-      // Loader
-      function createProgressSegments() {
-        const container = document.getElementById("progress-segments");
-        container.innerHTML = "";
-        for (let i = 0; i < 10; i++) {
-          const seg = document.createElement("div");
-          seg.className = "segment";
-          container.appendChild(seg);
-        }
-      }
-
-      function animateProgressLoader(callback) {
-        const segments = document.querySelectorAll(".segment");
-        let i = 0;
-        const interval = setInterval(() => {
-          if (i < segments.length) {
-            segments[i].classList.add("filled");
-            i++;
-          } else {
-            clearInterval(interval);
-            setTimeout(callback, 500);
-          }
-        }, 200);
-      }
-
-      function startJourney() {
-        const loader = document.getElementById("progress-loader-container");
-        const btnStart = document.getElementById("btn-start");
-        btnStart.style.display = "none";
-        loader.style.display = "flex";
-        createProgressSegments();
-        animateProgressLoader(() => {
-          loader.style.display = "none";
-          currentIndex = 1;
-          showMedia(currentIndex);
-          tryStartMusic();
-        });
-      }
-
-      function MateriButton() {
-        currentIndex = 3; // pindah ke index 3 → IMG/4.png
-        showMedia(currentIndex);
-      }
-
-      function Materi1Button() {
-        currentIndex = 4; // pindah ke index 3 → IMG/4.png
-        showMedia(currentIndex);
-      }
-
-      function Materi2Button() {
-        currentIndex = 13; // pindah ke index 3 → IMG/4.png
-        showMedia(currentIndex);
-      }
-
-      function Materi3Button() {
-        currentIndex = 18; // pindah ke index 3 → IMG/4.png
-        showMedia(currentIndex);
-      }
-      function backMedia2() {
-        currentIndex = 3; // pindah ke index 3 → IMG/4.png
-        showMedia(currentIndex);
-      }
-      function backMedia3() {
-        currentIndex = 3; // pindah ke index 3 → IMG/4.png
-        showMedia(currentIndex);
-      }
-      function backHome() {
-        currentIndex = 2; // pindah ke index 3 → IMG/4.png
-        showMedia(currentIndex);
-      }
-      function backMenu() {
-        currentIndex = 3; // pindah ke index 3 → IMG/4.png
-        showMedia(currentIndex);
-      }
-
-      // PERBAIKAN MUSIK: Variabel dan fungsi untuk kontrol musik yang lebih baik
-      const music = document.getElementById("bgMusic");
-      const btnMusik = document.getElementById("btn-musik");
-      let isPlaying = false;
-      let musicInitialized = false;
-      let userInteracted = false;
-
-      // PERBAIKAN MUSIK: Fungsi untuk inisialisasi musik
-      function initMusic() {
-        // Set volume awal
-        music.volume = 0.5;
-
-        // Tambahkan event listener untuk mendeteksi interaksi pengguna
-        document.addEventListener(
-          "click",
-          function () {
-            userInteracted = true;
-          },
-          { once: true }
-        );
-
-        // Tambahkan event listener untuk menangani error
-        music.addEventListener("error", function () {
-          console.error("Error loading background music");
-        });
-
-        // Tambahkan event listener untuk update state saat musik selesai
-        music.addEventListener("ended", function () {
-          if (music.loop) {
-            music.currentTime = 0;
-            music.play().catch((e) => console.log("Autoplay prevented:", e));
-          }
-        });
-
-        musicInitialized = true;
-      }
-
-      // PERBAIKAN MUSIK: Fungsi untuk mencoba memulai musik
-      function tryStartMusic() {
-        if (!musicInitialized) {
-          initMusic();
-        }
-
-        if (userInteracted && !isPlaying) {
-          music
-            .play()
-            .then(() => {
-              isPlaying = true;
-              btnMusik.src = "ASSET/musikpause.png";
-            })
-            .catch((e) => {
-              console.log("Autoplay prevented:", e);
-            });
-        }
-      }
-
-      // PERBAIKAN MUSIK: Fungsi toggle yang diperbaiki
-      function toggleMusic() {
-        if (!musicInitialized) {
-          initMusic();
-        }
-
-        if (!isPlaying) {
-          // Jika musik belum main → putar
-          music
-            .play()
-            .then(() => {
-              btnMusik.src = "ASSET/musikpause.png";
-              isPlaying = true;
-            })
-            .catch((e) => {
-              console.error("Error playing music:", e);
-              // Tampilkan pesan atau alternatif jika gagal memutar
-              alert("Tidak dapat memutar musik. Silakan coba lagi.");
-            });
-        } else {
-          // Jika musik sedang main → hentikan
-          music.pause();
-          btnMusik.src = "ASSET/musik.png";
-          isPlaying = false;
-        }
-      }
-
-      // PERBAIKAN MUSIK: Fungsi untuk mengatur volume
-      function setVolume(volume) {
-        music.volume = Math.max(0, Math.min(1, volume));
-      }
-
-      function QuizButton() {
-        currentIndex = 25;
-        showMedia(currentIndex);
-      }
-      function GameButton() {
-        currentIndex = 22;
-        showMedia(currentIndex);
-      }
-
-      // --- JAVASCRIPT UNTUK POPUP ---
-
-      // Fungsi umum untuk membuka popup
-      function openPopup(popupId) {
-        document.getElementById(popupId).style.display = "flex";
-      }
-
-      // Fungsi umum untuk menutup popup
-      function closePopup(popupId) {
-        document.getElementById(popupId).style.display = "none";
-      }
-
-      // Event listener untuk menutup popup jika pengguna mengklik area gelap (overlay)
-      window.onclick = function (event) {
-        // Cek apakah yang diklik adalah container popup (area gelapnya)
-        if (event.target.classList.contains("popup-container")) {
-          event.target.style.display = "none";
-        }
-      };
-
-      // --- PERUBAHAN: Inisialisasi Aplikasi ---
-      // Jalankan setelah DOM siap
-      document.addEventListener("DOMContentLoaded", () => {
-        // Kumpulkan semua URL gambar yang akan dimuat
-        const allImageUrls = [
-          // Gambar Slide
-          ...mediaList.map((item) => item.src),
-          // Gambar Tombol
-          "ASSET/Start.png",
-          "ASSET/Next.png",
-          "ASSET/Back.png",
-          "ASSET/END.png",
-          "ASSET/Materi.png",
-          "ASSET/materi1.png",
-          "ASSET/materi2.png",
-          "ASSET/materi3.png",
-          "ASSET/Quiz.png",
-          "ASSET/Games.png",
-          "ASSET/home.png",
-          "ASSET/menu.png",
-          "ASSET/musik.png",
-          "ASSET/musikpause.png",
-          "ASSET/gigi.png",
-          "ASSET/lidah.png",
-          "ASSET/duodenum.png",
-          "ASSET/jejunum.png",
-          "ASSET/ileum.png",
-          "ASSET/DYK.png",
-          "ASSET/startquiz.png",
-          "ASSET/qanus.png",
-          "ASSET/qlidah.png",
-          "ASSET/qusushalus.png",
-          "ASSET/qlambung.png",
-          "ASSET/qgigi.png",
-          "ASSET/qususbesar.png",
-          "ASSET/qduode.png",
-          "ASSET/qmulut.png",
-          "ASSET/qkosongan.png",
-          // Gambar Popup
-          "POPUP/1.png",
-          "POPUP/2.png",
-          "POPUP/3.png",
-          "POPUP/4.png",
-          "POPUP/5.png",
-          "POPUP/6.png",
-          "POPUP/7.png",
-        ];
-
-        // Mulai proses preloading
-        preloadAssets(allImageUrls, onAllAssetsLoaded);
-      });
-      // --- AKHIR PERUBAHAN ---
-      // Definisikan kelompok tombol per soal
-      const soalGroups = {
-        soal1: ["btn-qanus", "btn-qlidah", "btn-qusushalus", "btn-qlambung"],
-        soal2: ["btn-qgigi", "btn-qususbesar", "btn-qduode", "btn-qmulut"],
-      };
-
-      // Fungsi untuk membuat event pada tiap kelompok
-      Object.keys(soalGroups).forEach((soal) => {
-        const ids = soalGroups[soal];
-
-        ids.forEach((id) => {
-          const btn = document.getElementById(id);
-          if (!btn) return;
-
-          const img = btn.querySelector("img");
-          const originalSrc = img.getAttribute("src");
-          const klikSrc = originalSrc.replace(".png", "klik.png");
-
-          btn.addEventListener("click", () => {
-            // Reset semua tombol lain di soal yang sama
-            ids.forEach((otherId) => {
-              const otherBtn = document.getElementById(otherId);
-              if (!otherBtn) return;
-              const otherImg = otherBtn.querySelector("img");
-              const otherSrc = otherImg.getAttribute("src");
-              if (otherSrc.endsWith("klik.png")) {
-                otherImg.src = otherSrc.replace("klik.png", ".png");
-              }
-            });
-
-            // Aktifkan tombol yang diklik
-            img.src = klikSrc;
-          });
-        });
-      });
-      function playClickSound() {
-        document.getElementById("click-sound").play();
-      }
-    </script>
-    <script>
-      const canvas = document.getElementById("canvas");
-      const ctx = canvas.getContext("2d");
-      const resetBtn = document.getElementById("reset-btn");
-
-      let startPoint = null;
-      let tempMouse = null;
-      const connections = [];
-
-      // TAMBAHAN: Toleransi jarak untuk mendeteksi klik pada garis (dalam piksel)
-      const TOLERANCE = 10;
-
-      function getCenter(el) {
-        const rect = el.getBoundingClientRect();
-        const parent = canvas.getBoundingClientRect();
-        return {
-          x: rect.left - parent.left + rect.width / 2,
-          y: rect.top - parent.top + rect.height / 2,
-        };
-      }
-
-      function drawConnections() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        connections.forEach((line) => {
-          ctx.beginPath();
-          ctx.moveTo(line.from.x, line.from.y);
-          ctx.lineTo(line.to.x, line.to.y);
-          ctx.strokeStyle = line.color;
-          ctx.lineWidth = 3;
-          ctx.stroke();
-          ctx.closePath();
-        });
-      }
-
-      function animateLine(from, to, color = "#2ecc71") {
-        const steps = 25;
-        let currentStep = 0;
-        function animate() {
-          if (currentStep <= steps) {
-            const progressX = from.x + ((to.x - from.x) * currentStep) / steps;
-            const progressY = from.y + ((to.y - from.y) * currentStep) / steps;
-            drawConnections();
-            ctx.beginPath();
-            ctx.moveTo(from.x, from.y);
-            ctx.lineTo(progressX, progressY);
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 3;
-            ctx.stroke();
-            ctx.closePath();
-            currentStep++;
-            requestAnimationFrame(animate);
-          } else {
-            connections.push({ from, to, color });
-            drawConnections();
-          }
-        }
-        animate();
-      }
-
-      // TAMBAHAN: Fungsi untuk menghitung jarak dari titik ke segmen garis
-      function getDistanceFromPointToLine(px, py, line) {
-        const {
-          from: { x: x1, y: y1 },
-          to: { x: x2, y: y2 },
-        } = line;
-
-        const A = px - x1;
-        const B = py - y1;
-        const C = x2 - x1;
-        const D = y2 - y1;
-
-        const dot = A * C + B * D;
-        const lenSq = C * C + D * D;
-        let param = -1;
-
-        if (lenSq !== 0) param = dot / lenSq;
-
-        let xx, yy;
-
-        if (param < 0) {
-          xx = x1;
-          yy = y1;
-        } else if (param > 1) {
-          xx = x2;
-          yy = y2;
-        } else {
-          xx = x1 + param * C;
-          yy = y1 + param * D;
-        }
-
-        const dx = px - xx;
-        const dy = py - yy;
-        return Math.sqrt(dx * dx + dy * dy);
-      }
-
-      document.querySelectorAll(".point").forEach((p) => {
-        p.addEventListener("mousedown", (e) => {
-          const target = e.target;
-
-          if (startPoint === target) {
-            startPoint.classList.remove("active");
-            startPoint = null;
-            drawConnections();
-            return;
-          }
-
-          if (!startPoint) {
-            startPoint = target;
-            target.classList.add("active");
-          } else {
-            const sameSide =
-              (startPoint.closest(".left") && target.closest(".left")) ||
-              (startPoint.closest(".right") && target.closest(".right"));
-
-            if (sameSide) return;
-
-            const from = getCenter(startPoint);
-            const to = getCenter(target);
-
-            startPoint.classList.remove("active");
-            animateLine(from, to, "#4c368d");
-            startPoint = null;
-          }
-        });
-      });
-
-      // UBAHAN: Event mousemove sekarang juga menangani perubahan kursor
-      canvas.addEventListener("mousemove", (e) => {
-        const rect = canvas.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
-
-        // Logika untuk menggambar garis sementara
-        if (startPoint) {
-          tempMouse = { x: mouseX, y: mouseY };
-          drawConnections();
-          const from = getCenter(startPoint);
-          ctx.beginPath();
-          ctx.moveTo(from.x, from.y);
-          ctx.lineTo(tempMouse.x, tempMouse.y);
-          ctx.strokeStyle = "#3498db";
-          ctx.lineWidth = 2;
-          ctx.setLineDash([5, 5]);
-          ctx.stroke();
-          ctx.setLineDash([]);
-          ctx.closePath();
-          canvas.style.cursor = "crosshair"; // Kursor saat menggambar
-        } else {
-          // Logika untuk mengubah kursor saat di atas garis
-          let isOverLine = false;
-          for (const line of connections) {
-            if (getDistanceFromPointToLine(mouseX, mouseY, line) < TOLERANCE) {
-              isOverLine = true;
-              break;
-            }
-          }
-          canvas.style.cursor = isOverLine ? "pointer" : "default";
-        }
-      });
-
-      canvas.addEventListener("mouseup", () => {
-        tempMouse = null;
-        drawConnections();
-      });
-
-      // TAMBAHAN: Event listener untuk menghapus garis
-      canvas.addEventListener("click", (e) => {
-        // Jika sedang dalam proses menggambar garis baru, jangan hapus
-        if (startPoint) return;
-
-        const rect = canvas.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const clickY = e.clientY - rect.top;
-
-        // Iterasi dari belakang untuk menghapus garis yang paling atas (terakhir dibuat)
-        for (let i = connections.length - 1; i >= 0; i--) {
-          const line = connections[i];
-          if (getDistanceFromPointToLine(clickX, clickY, line) < TOLERANCE) {
-            connections.splice(i, 1); // Hapus garis dari array
-            drawConnections(); // Gambar ulang canvas
-            break; // Hentikan loop setelah menghapus satu garis
-          }
-        }
-      });
-
-      resetBtn.addEventListener("click", () => {
-        connections.length = 0;
-        startPoint = null;
-        drawConnections();
-        document
-          .querySelectorAll(".point")
-          .forEach((p) => p.classList.remove("active"));
-      });
-    </script>
+    <audio id="soundBenar" src="audio/organcorrect.wav"></audio>
+    <audio id="soundSalah" src="audio/organwrong.wav"></audio>
+    <audio id="soundSelesai" src="audio/organfinish.wav"></audio>
+
+    <script></script>
+
+    <script src="quiz.js"></script>
+    <script src="game1.js"></script>
+    <script src="game2.js"></script>
+    <script src="game3.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
