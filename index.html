@@ -24,12 +24,23 @@
 
     <div id="slide-container">
       <div id="media-container">
+        <!-- Notifikasi -->
+        <div id="notif" class="notif"></div>
         <!-- Tombol START -->
         <div id="btn-start" class="btn">
           <img
             src="ASSET/Start.webp"
             alt="Start Button"
             onclick="startJourney(); toggleMusic();"
+          />
+        </div>
+
+        <!-- Tombol Full Screen - Tambahan Baru -->
+        <div id="btn-fullscreen" class="btn">
+          <img
+            src="ASSET/fullscreen.webp"
+            alt="Fullscreen Button"
+            onclick="toggleFullscreen()"
           />
         </div>
 
@@ -66,6 +77,14 @@
             src="ASSET/PP.webp"
             alt="PP Button"
             onclick="openPopup('popup-pp-container')"
+          />
+        </div>
+
+        <div id="btn-PO" class="btn">
+          <img
+            src="ASSET/PO.webp"
+            alt="PO Button"
+            onclick="openPopup('popup-po-container')"
           />
         </div>
 
@@ -273,26 +292,17 @@
           <img src="ASSET/qkosongan.webp" alt="" />
           <textarea placeholder="Ketik jawaban di sini..."></textarea>
         </div>
-        <!-- <div id="check-soal4" class="btn">
-          <img src="ASSET/check.webp" alt="Cek Jawaban Soal 4" />
-        </div> -->
+
         <!-- soal 5 isian -->
         <div id="input-qsoal5" class="isian">
           <img src="ASSET/qkosongan.webp" alt="" />
           <textarea placeholder="Ketik jawaban di sini..."></textarea>
         </div>
-        <!-- <div id="check-soal5" class="btn">
-          <img src="ASSET/check.webp" alt="Cek Jawaban Soal 5" />
-        </div> -->
         <!-- soal 6 isian -->
         <div id="input-qsoal6" class="isian">
           <img src="ASSET/qkosongan.webp" alt="" />
           <textarea placeholder="Ketik jawaban di sini..."></textarea>
         </div>
-        <!-- <div id="check-soal6" class="btn">
-          <img src="ASSET/check.webp" alt="Cek Jawaban Soal 6" />
-        </div> -->
-        <!--  -->
 
         <!-- GAMES -->
         <!-- GAME 1 -->
@@ -589,6 +599,15 @@
       </div>
     </div>
 
+    <div id="popup-po-container" class="popup-container">
+      <div class="popup-content">
+        <img src="POPUP/42.webp" alt="Gambar po" />
+        <span class="popup-close-btn" onclick="closePopup('popup-po-container')"
+          >&times;</span
+        >
+      </div>
+    </div>
+
     <div id="popup-gigi-container" class="popup-container">
       <div class="popup-content">
         <img src="POPUP/1.webp" alt="Gambar Gigi" />
@@ -678,9 +697,6 @@
       </div>
     </div>
 
-    <!-- Notifikasi -->
-    <div id="notif" class="notif"></div>
-
     <!-- Suara Efek -->
     <audio
       id="sound-correct"
@@ -701,6 +717,7 @@
     <script src="game1.js"></script>
     <script src="game2.js"></script>
     <script src="game3.js"></script>
+    <script src="function.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
