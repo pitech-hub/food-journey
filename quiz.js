@@ -17,9 +17,6 @@ const btnqSoal6 = document.getElementById("input-qsoal6");
 const check1 = document.getElementById("check-soal1");
 const check2 = document.getElementById("check-soal2");
 const check3 = document.getElementById("check-soal3");
-// const check4 = document.getElementById("check-soal4");
-// const check5 = document.getElementById("check-soal5");
-// const check6 = document.getElementById("check-soal6");
 
 const notif = document.getElementById("notif");
 const soundCorrect = document.getElementById("sound-correct");
@@ -40,9 +37,6 @@ const kunciJawaban = {
   soal1: "btn-qusushalus",
   soal2: "btn-qususbesar",
   soal3: ["MENGHANCURKAN", "LAMBUNG", "USUS HALUS", "ANUS"],
-  // soal4: "USUS BESAR",
-  // soal5: "ANUS",
-  // soal6: "LIDAH",
 };
 
 const jawabanUser = {};
@@ -75,9 +69,9 @@ Object.keys(soalGroups).forEach((soal) => {
 function showNotif(teks, status) {
   notif.textContent = teks;
   notif.className = `notif show ${status}`;
+  notif.style.zIndex = "9999"; // Pastikan z-index tinggi
   setTimeout(() => notif.classList.remove("show", "correct", "wrong"), 1800);
 }
-
 // --- CEK GAMBAR (1 & 2) --- //
 check1.addEventListener("click", () => {
   if (jawabanUser.soal1 === kunciJawaban.soal1) {
@@ -130,39 +124,3 @@ check3.addEventListener("click", () => {
     showNotif("🧐 Ada yang keliru, cek lagi urutannya!", "wrong");
   }
 });
-
-// check4.addEventListener("click", () => {
-//   const val = getTextareaValue("input-qsoal4");
-//   if (!val) return showNotif("⚠️ Isi dulu jawabannya!", "wrong");
-//   if (val === kunciJawaban.soal4) {
-//     soundCorrect.play();
-//     showNotif("✅ Tepat sekali!", "correct");
-//   } else {
-//     soundWrong.play();
-//     showNotif("❌ Masih salah, coba lagi ya!", "wrong");
-//   }
-// });
-
-// check5.addEventListener("click", () => {
-//   const val = getTextareaValue("input-qsoal5");
-//   if (!val) return showNotif("⚠️ Isi dulu jawabannya!", "wrong");
-//   if (val === kunciJawaban.soal5) {
-//     soundCorrect.play();
-//     showNotif("👏 Benar! Kamu paham fungsinya!", "correct");
-//   } else {
-//     soundWrong.play();
-//     showNotif("😅 Kurang tepat, periksa lagi!", "wrong");
-//   }
-// });
-
-// check6.addEventListener("click", () => {
-//   const val = getTextareaValue("input-qsoal6");
-//   if (!val) return showNotif("⚠️ Isi dulu jawabannya!", "wrong");
-//   if (val === kunciJawaban.soal6) {
-//     soundCorrect.play();
-//     showNotif("💪 Mantap! Jawabanmu benar!", "correct");
-//   } else {
-//     soundWrong.play();
-//     showNotif("😜 Salah sedikit nih, coba lagi!", "wrong");
-//   }
-// });
