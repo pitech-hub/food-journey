@@ -266,6 +266,11 @@ body {
   right: 6.6%;
   width: 6%;
 }
+#btn-nextm1.disabled-btn {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 #btn-backm1 {
   bottom: -3.5%;
   left: 12.5%;
@@ -1421,4 +1426,5 @@ audio {
 .wrong-line {
   filter: drop-shadow(0 0 6px #e74c3c);
 }
+
 
