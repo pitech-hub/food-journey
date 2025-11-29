@@ -50,6 +50,8 @@ const animasi4 = document.getElementById("vidanimasi4");
 const animasi4x = document.getElementById("video4");
 const animasi5 = document.getElementById("vidanimasi5");
 const animasi5x = document.getElementById("video5");
+const animasi6 = document.getElementById("vidanimasi6");
+const animasi6x = document.getElementById("video6");
 
 const food1 = document.getElementById("food1");
 const food2 = document.getElementById("food2");
@@ -326,6 +328,7 @@ function showMedia(index) {
     "video3",
     "video4",
     "video5",
+    "video6",
     "food1",
     "food2",
     "food3",
@@ -537,6 +540,8 @@ function showMedia(index) {
   animasi4x.style.display = index === 9 ? "block" : "none";
   animasi5.style.display = index === 11 ? "block" : "none";
   animasi5x.style.display = index === 11 ? "block" : "none";
+  animasi6.style.display = [26, 27, 28].includes(index) ? "block" : "none";
+  animasi6x.style.display = [26, 27, 28].includes(index) ? "block" : "none";
 
   // Jika sedang di slide 1 (input nama)
   if (index === 1) {
