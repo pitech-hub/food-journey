@@ -460,8 +460,8 @@ body {
 }
 #check-game1 {
   top: 90%;
-  left: 14%;
-  width: 5%;
+  left: 13%;
+  width: 6%;
 }
 /* #check-soal4 {
   top: 95%;
@@ -862,7 +862,12 @@ canvas {
   left: 15%;
   z-index: 100;
 }
-
+#vidanimasi7 {
+  width: 5%;
+  top: 91%;
+  left: 16%;
+  z-index: 100;
+}
 /*  */
 /* Gaya makanan bulat */
 .food-list {
