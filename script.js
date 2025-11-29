@@ -257,12 +257,13 @@ const mediaList = [
   { type: "image", src: "IMG/32.webp" },
   //quiz
   { type: "image", src: "IMG/33.webp" }, // 25
-  { type: "image", src: "IMG/34.webp" },
-  { type: "image", src: "IMG/35.webp" },
-  { type: "image", src: "IMG/36.webp" },
-  { type: "image", src: "IMG/37.webp" },
-  { type: "image", src: "IMG/38.webp" },
-  { type: "image", src: "IMG/39.webp" },
+  { type: "image", src: "IMG/34.webp" }, // 26
+  { type: "image", src: "IMG/35.webp" }, // 27
+
+  { type: "image", src: "IMG/36.webp" }, // 28 ISIAN
+  { type: "image", src: "IMG/37.webp" }, // 29
+  { type: "image", src: "IMG/38.webp" }, // 30
+  { type: "image", src: "IMG/39.webp" }, // 31
   //
 ];
 
@@ -551,5 +552,93 @@ function showMedia(index) {
     initGame2();
     // 2. Muat state game terakhir (akan berjalan setiap kali slide ini dibuka)
     loadGameState2();
+  }
+
+  if (btnNextM1) {
+    btnNextM1.disabled = false;
+    btnNextM1.classList.remove("disabled-btn");
+  }
+
+  const validateQuizSlide = (index) => {
+    // Fungsi untuk mengatur status tombol
+    const setNextButtonState = (isDisabled) => {
+      if (btnNextM1) {
+        btnNextM1.disabled = isDisabled;
+        if (isDisabled) {
+          btnNextM1.classList.add("disabled-btn");
+        } else {
+          btnNextM1.classList.remove("disabled-btn");
+        }
+      }
+    };
+
+    if (index === 28) {
+      // Slide soal isian pertama (4 kolom)
+      const inputs = [
+        document.querySelector("#input-qsoal3a textarea"),
+        document.querySelector("#input-qsoal3b textarea"),
+        document.querySelector("#input-qsoal3c textarea"),
+        document.querySelector("#input-qsoal3d textarea"),
+      ];
+
+      const checkInputs = () => {
+        const allFilled = inputs.every(
+          (input) => input && input.value.trim() !== ""
+        );
+        // Jika semua terisi (allFilled=true), maka tombol aktif (setNextButtonState(false))
+        setNextButtonState(!allFilled);
+      };
+
+      inputs.forEach((input) => {
+        if (input && !input.hasValidationListener) {
+          input.addEventListener("input", checkInputs);
+          // Tandai elemen ini agar listener tidak ditambahkan lagi di masa depan
+          input.hasValidationListener = true;
+        }
+      });
+      // Jalankan pengecekan awal saat slide dimuat
+      checkInputs();
+    } else if (index === 29) {
+      // Slide soal isian kedua (1 kolom)
+      const input = document.querySelector("#input-qsoal4 textarea");
+      const checkInput = () => {
+        const isFilled = input && input.value.trim() !== "";
+        setNextButtonState(!isFilled);
+      };
+      if (input && !input.hasValidationListener) {
+        input.addEventListener("input", checkInput);
+        input.hasValidationListener = true;
+      }
+      checkInput();
+    } else if (index === 30) {
+      // Slide soal isian ketiga (1 kolom)
+      const input = document.querySelector("#input-qsoal5 textarea");
+      const checkInput = () => {
+        const isFilled = input && input.value.trim() !== "";
+        setNextButtonState(!isFilled);
+      };
+      if (input && !input.hasValidationListener) {
+        input.addEventListener("input", checkInput);
+        input.hasValidationListener = true;
+      }
+      checkInput();
+    } else if (index === 31) {
+      // Slide soal isian keempat (1 kolom)
+      const input = document.querySelector("#input-qsoal6 textarea");
+      const checkInput = () => {
+        const isFilled = input && input.value.trim() !== "";
+        setNextButtonState(!isFilled);
+      };
+      if (input && !input.hasValidationListener) {
+        input.addEventListener("input", checkInput);
+        input.hasValidationListener = true;
+      }
+      checkInput();
+    }
+  };
+
+  // Panggil fungsi validasi hanya jika kita berada di slide kuis
+  if ([28, 29, 30, 31].includes(index)) {
+    validateQuizSlide(index);
   }
 }
