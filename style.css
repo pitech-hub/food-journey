@@ -444,19 +444,19 @@ body {
   width: 50%;
 }
 #check-soal1 {
-  top: 65%;
-  left: 10%;
-  width: 10%;
+  top: 42%;
+  left: 9%;
+  width: 18%;
 }
 #check-soal2 {
-  top: 65%;
-  left: 10%;
-  width: 10%;
+  top: 42%;
+  left: 9%;
+  width: 18%;
 }
 #check-soal3 {
-  top: 65%;
-  left: 10%;
-  width: 10%;
+  top: 42%;
+  left: 9%;
+  width: 18%;
 }
 #check-game1 {
   top: 90%;
@@ -855,6 +855,12 @@ canvas {
   width: 31%;
   top: 60%;
   left: 29%;
+}
+#vidanimasi6 {
+  width: 11%;
+  top: 51%;
+  left: 15%;
+  z-index: 100;
 }
 
 /*  */
@@ -1427,4 +1433,29 @@ audio {
   filter: drop-shadow(0 0 6px #e74c3c);
 }
 
+.slot.drag-over {
+  border-color: #4caf50; /* Warna hijau untuk menandai boleh di-drop */
+  background-color: rgba(76, 175, 80, 0.2); /* Background hijau transparan */
+  transform: scale(1.05); /* Sedikit membesar */
+  cursor: grabbing;
+}
 
+.food-list.drag-over {
+  border-color: #4caf50;
+  background-color: rgba(76, 175, 80, 0.1);
+}
+/* Tambahkan ke file CSS Anda */
+.dragging {
+  opacity: 0.6; /* Gambar menjadi sedikit transparan saat diseret */
+  cursor: grabbing;
+
+  /* INI ADALAH BAGIAN TERPENTING */
+  /* Elemen ini tidak akan lagi menangkap event mouse, 
+     sehingga event akan "tembus" ke elemen di bawahnya */
+  pointer-events: none;
+}
+
+/* Opsional: Pastikan slot memiliki kursor yang tepat */
+.slot {
+  cursor: grab; /* Kursor tangan sebelum di-drag */
+}
