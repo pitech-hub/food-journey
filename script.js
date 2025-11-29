@@ -52,6 +52,8 @@ const animasi5 = document.getElementById("vidanimasi5");
 const animasi5x = document.getElementById("video5");
 const animasi6 = document.getElementById("vidanimasi6");
 const animasi6x = document.getElementById("video6");
+const animasi7 = document.getElementById("vidanimasi7");
+const animasi7x = document.getElementById("video7");
 
 const food1 = document.getElementById("food1");
 const food2 = document.getElementById("food2");
@@ -329,6 +331,7 @@ function showMedia(index) {
     "video4",
     "video5",
     "video6",
+    "video7",
     "food1",
     "food2",
     "food3",
@@ -542,7 +545,8 @@ function showMedia(index) {
   animasi5x.style.display = index === 11 ? "block" : "none";
   animasi6.style.display = [26, 27, 28].includes(index) ? "block" : "none";
   animasi6x.style.display = [26, 27, 28].includes(index) ? "block" : "none";
-
+  animasi7.style.display = index === 22 ? "block" : "none";
+  animasi7x.style.display = index === 22 ? "block" : "none";
   // Jika sedang di slide 1 (input nama)
   if (index === 1) {
     txtinput.value = ""; // kosongkan input saat slide dimulai
