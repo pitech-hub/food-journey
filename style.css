@@ -837,9 +837,9 @@ canvas {
   left: 27.5%;
 }
 #vidanimasi3 {
-  width: 30%;
+  width: 29%;
   top: 61%;
-  left: 27.5%;
+  left: 27%;
 }
 #vidanimasi4 {
   width: 29%;
@@ -1421,3 +1421,4 @@ audio {
 .wrong-line {
   filter: drop-shadow(0 0 6px #e74c3c);
 }
+
