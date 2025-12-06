@@ -914,6 +914,7 @@ canvas {
   gap: 10%; /* jarak antar slot */
   padding: 1%;
   padding-top: 7%;
+  z-index: 9999;
 }
 
 /* Slot lingkaran */
@@ -929,6 +930,7 @@ canvas {
   transition: all 0.2s ease;
   overflow: hidden; /* jaga gambar tetap bulat */
   cursor: grab;
+  margin-bottom: 20%; /* atur bebas: px, %, rem */
 }
 
 .slot:hover {
@@ -1463,4 +1465,79 @@ audio {
 /* Opsional: Pastikan slot memiliki kursor yang tepat */
 .slot {
   cursor: grab; /* Kursor tangan sebelum di-drag */
+}
+
+/* --- Notifikasi GJF --- */
+/* ============================
+   GJF NOTIFICATION
+   ============================ */
+.gjf-notif-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.gjf-notif {
+  min-width: 260px;
+  padding: 25px 40px;
+  border-radius: 14px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateX(50px);
+  animation: gjfSlideIn 0.4s ease forwards;
+  text-align: center;
+
+  position: fixed;
+  top: 10%;
+  left: 40%;
+  text-align: center;
+  z-index: 9999;
+}
+.gjf-notif.correct {
+  background: linear-gradient(135deg, #37c76a, #2a9f55);
+}
+
+.gjf-notif.incorrect {
+  background: linear-gradient(135deg, #ff5f5f, #d63c3c);
+}
+
+.gjf-title {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.gjf-message {
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+/* Animasi notifikasi masuk */
+@keyframes gjfSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(60px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Animasi keluar */
+@keyframes gjfFadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(60px) scale(0.9);
+  }
 }
