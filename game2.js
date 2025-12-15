@@ -231,9 +231,9 @@ function loadGameState() {
 const kategoriBenar = {
   kolomK: ["nasi", "roti", "kentang", "mie"],
   kolomP: ["ayam", "ikan", "daging", "tempe"],
-  kolomL: ["madu", "mentega", "alpukat", "telur"],
+  kolomL: ["minyak", "mentega", "alpukat", "kuning telur"],
   kolomV: ["wortel", "tomat", "apel", "jeruk"],
-  kolomM: ["bayam", "jamur", "brokoli", "keju"],
+  kolomM: ["bayam", "hati", "brokoli", "keju"],
 };
 
 function showNotificationgjf(type, title, message) {
