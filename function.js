@@ -102,6 +102,11 @@ function backMenu() {
   currentIndex = 3; // pindah ke index 3 → IMG/4.webp
   showMedia(currentIndex);
 }
+function PlayVideo() {
+  currentIndex = 32; // pindah ke index 3 → IMG/4.webp
+  showMedia(currentIndex);
+  toggleMusic();
+}
 
 const music = document.getElementById("bgMusic");
 const btnMusik = document.getElementById("img-musik");
@@ -118,7 +123,7 @@ document.addEventListener(
       initialized = true;
     }
   },
-  { once: true }
+  { once: true },
 );
 
 // Fungsi toggle musik
@@ -133,7 +138,7 @@ function toggleMusic() {
       .play()
       .then(() => {
         isPlaying = true;
-        btnMusik.src = "ASSET/musikpause.webp";
+        btnMusik.src = "ASSET/musik.webp";
       })
       .catch((err) => {
         console.warn("Autoplay prevented:", err);
@@ -142,7 +147,7 @@ function toggleMusic() {
   } else {
     music.pause();
     isPlaying = false;
-    btnMusik.src = "ASSET/musik.webp";
+    btnMusik.src = "ASSET/musikpause.webp";
   }
 }
 
@@ -292,7 +297,7 @@ function handleFullscreenChange() {
 
     // Pastikan semua popup yang sedang terbuka tetap terlihat
     const visiblePopups = document.querySelectorAll(
-      '.popup-container[style*="flex"]'
+      '.popup-container[style*="flex"]',
     );
     visiblePopups.forEach((popup) => {
       popup.style.zIndex = "9999";
