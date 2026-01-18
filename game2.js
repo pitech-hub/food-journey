@@ -135,7 +135,7 @@ function drop(event) {
       showNotificationgjf(
         "correct",
         "Benar!",
-        `${food.alt} mengandung ${getNutrientName(columnType)} yang tinggi.`
+        `${food.alt} mengandung ${getNutrientName(columnType)} yang tinggi.`,
       );
     } else {
       // ⭐ Tambahkan animasi salah
@@ -148,7 +148,7 @@ function drop(event) {
       showNotificationgjf(
         "incorrect",
         "Coba Lagi!",
-        `${food.alt} tidak termasuk kategori ${getNutrientName(columnType)}.`
+        `${food.alt} tidak termasuk kategori ${getNutrientName(columnType)}.`,
       );
     }
 
@@ -199,7 +199,7 @@ function saveGameState() {
 function loadGameState() {
   const slotState = JSON.parse(localStorage.getItem("slotState") || "{}");
   const foodListState = JSON.parse(
-    localStorage.getItem("foodListState") || "{}"
+    localStorage.getItem("foodListState") || "{}",
   );
 
   // Pulihkan slot
@@ -279,4 +279,32 @@ function getNutrientName(id) {
     default:
       return "Nutrisi";
   }
+}
+
+// --- FUNGSI RESET GAME 2 ---
+function resetFoodPositions() {
+  // 1. Kembalikan semua makanan ke posisi awal
+  document.querySelectorAll(".food").forEach((img) => {
+    const originalParent = originalParents[img.id];
+    if (originalParent) {
+      // Pindahkan gambar kembali ke parent asal (food-list)
+      originalParent.appendChild(img);
+    }
+  });
+
+  // 2. Hapus kelas status dari semua slot (filled, correct, incorrect)
+  document.querySelectorAll(".slot").forEach((slot) => {
+    slot.classList.remove("filled", "correct", "incorrect");
+  });
+
+  // 3. Hapus data penyimpanan (LocalStorage) agar saat slide dibuka ulang
+  //    tidak memuat posisi lama yang sudah di-reset
+  localStorage.removeItem("slotState");
+  localStorage.removeItem("foodListState");
+
+  // 4. (Opsional) Mainkan suara klik
+  playClickSound();
+
+  // 5. (Opsional) Beri notifikasi
+  // showNotificationgjf("incorrect", "Reset", "Posisi makanan telah dikembalikan.");
 }
