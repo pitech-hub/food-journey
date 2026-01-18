@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -33,7 +33,10 @@
           <img
             src="ASSET/Start.webp"
             alt="Start Button"
-            onclick="startJourney(); toggleMusic();"
+            onclick="
+              startJourney();
+              toggleMusic();
+            "
           />
         </div>
 
@@ -61,7 +64,9 @@
           placeholder="ENTER YOUR NAME"
           maxlength="7"
           oninput="handleInput(this)"
-          oninput="this.value = this.value.toUpperCase().replace(/[^A-Z\s]/g, '')"
+          oninput="
+            this.value = this.value.toUpperCase().replace(/[^A-Z\s]/g, '')
+          "
         />
 
         <div id="greeting"></div>
@@ -146,35 +151,47 @@
           <img
             src="ASSET/Next.webp"
             alt="Next Button"
-            onclick="nextMedia(); playClickSound();"
+            onclick="
+              nextMedia();
+              playClickSound();
+            "
           />
         </div>
         <div id="btn-backm1" class="btn">
           <img
             src="ASSET/Back.webp"
             alt="Back Button"
-            onclick="backMedia(); playClickSound();"
+            onclick="
+              backMedia();
+              playClickSound();
+            "
           />
         </div>
         <div id="btn-backm2" class="btn">
           <img
             src="ASSET/Back.webp"
             alt="Back Button"
-            onclick="backMedia2(); playClickSound();"
+            onclick="
+              backMedia2();
+              playClickSound();
+            "
           />
         </div>
         <div id="btn-backm3" class="btn">
           <img
             src="ASSET/Back.webp"
             alt="Back Button"
-            onclick="backMedia3(); playClickSound();"
+            onclick="
+              backMedia3();
+              playClickSound();
+            "
           />
         </div>
         <div id="btn-nextend" class="btn">
           <img
             src="ASSET/END.webp"
             alt="Next Button"
-            onclick="playClickSound();"
+            onclick="playClickSound()"
           />
         </div>
         <div id="btn-home" class="btn">
@@ -336,6 +353,15 @@
         </div>
 
         <!-- GAME 2 -->
+        <!-- Tambahkan tombol ini di area tombol game -->
+        <button
+          id="btn-reset-game2"
+          onclick="resetFoodPositions()"
+          alt="Reset Game 2 Button"
+        >
+          🔄
+        </button>
+
         <div class="food-list" id="food1">
           <img
             src="makanan/1.webp"
@@ -867,4 +893,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
