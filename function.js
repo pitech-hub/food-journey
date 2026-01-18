@@ -116,7 +116,6 @@ function PlayVideo() {
   btnMusik.src = "ASSET/musikpause.webp";
 }
 
-
 const music = document.getElementById("bgMusic");
 const btnMusik = document.getElementById("img-musik");
 
@@ -338,4 +337,3 @@ document.addEventListener("keydown", function (e) {
     exitFullscreen();
   }
 });
-
