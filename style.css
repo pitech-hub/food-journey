@@ -823,7 +823,7 @@ canvas {
   background: #c0392b;
 }
 
-. {
+.video-container {
   position: absolute;
   transform: translate(-50%, -50%);
   height: auto;
@@ -1567,4 +1567,5 @@ audio {
   height: 100%;
   border: none;
 }
+
 
