@@ -6,6 +6,7 @@ const greeting = document.getElementById("greeting");
 const cp = document.getElementById("btn-CP");
 const pp = document.getElementById("btn-PP");
 const po = document.getElementById("btn-PO");
+const play = document.getElementById("btn-PLAY");
 const btnMateri = document.getElementById("btn-materi");
 const btnMateri1 = document.getElementById("btn-materi1");
 const btnMateri2 = document.getElementById("btn-materi2");
@@ -268,6 +269,8 @@ const mediaList = [
   { type: "image", src: "IMG/37.webp" }, // 29
   { type: "image", src: "IMG/38.webp" }, // 30
   { type: "image", src: "IMG/39.webp" }, // 31
+
+  { type: "image", src: "IMG/white.webp" }, // NEW VID
   //
 ];
 
@@ -282,6 +285,7 @@ function showMedia(index) {
     "btn-CP",
     "btn-PP",
     "btn-PO",
+    "btn-PLAY",
     "btn-materi",
     "btn-materi1",
     "btn-materi2",
@@ -385,7 +389,7 @@ function showMedia(index) {
 
   const currentMedia = mediaList[index];
   const mediaElement = document.createElement(
-    currentMedia.type === "video" ? "video" : "img"
+    currentMedia.type === "video" ? "video" : "img",
   );
   mediaElement.src = currentMedia.src;
   if (currentMedia.type === "video") {
@@ -407,6 +411,7 @@ function showMedia(index) {
   cp.style.display = index === 2 ? "block" : "none";
   pp.style.display = index === 2 ? "block" : "none";
   po.style.display = index === 2 ? "block" : "none";
+  play.style.display = index === 2 ? "block" : "none";
   btnMateri.style.display = index === 2 ? "block" : "none"; // ✅ tampil mulai slide ke-3
   btnQuiz.style.display = index === 2 ? "block" : "none";
   btnGame.style.display = index === 2 ? "block" : "none";
@@ -547,6 +552,12 @@ function showMedia(index) {
   animasi6x.style.display = [26, 27, 28].includes(index) ? "block" : "none";
   animasi7.style.display = index === 22 ? "block" : "none";
   animasi7x.style.display = index === 22 ? "block" : "none";
+
+  document.getElementById("vidyoutube").style.display =
+    currentIndex !== 32 ? "none" : "block";
+  document.getElementById("yt-video").src =
+    currentIndex !== 32 ? "" : "https://www.youtube.com/embed/g9LvjUavRMg";
+
   // Jika sedang di slide 1 (input nama)
   if (index === 1) {
     txtinput.value = ""; // kosongkan input saat slide dimulai
@@ -562,6 +573,13 @@ function showMedia(index) {
     // 2. Muat state game terakhir (akan berjalan setiap kali slide ini dibuka)
     loadGameState2();
   }
+
+  // if (index === 24) {
+  //   showJoystick();
+  // }
+  // if (index == !24) {
+  //   hideJoystick();
+  // }
 
   if (btnNextM1) {
     btnNextM1.disabled = false;
@@ -592,7 +610,7 @@ function showMedia(index) {
 
       const checkInputs = () => {
         const allFilled = inputs.every(
-          (input) => input && input.value.trim() !== ""
+          (input) => input && input.value.trim() !== "",
         );
         // Jika semua terisi (allFilled=true), maka tombol aktif (setNextButtonState(false))
         setNextButtonState(!allFilled);
