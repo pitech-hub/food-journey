@@ -103,10 +103,19 @@ function backMenu() {
   showMedia(currentIndex);
 }
 function PlayVideo() {
-  currentIndex = 32; // pindah ke index 3 → IMG/4.webp
+  currentIndex = 32; // pindah ke index video
   showMedia(currentIndex);
-  toggleMusic();
+
+  // ⛔ Paksa musik mati
+  if (music && !music.paused) {
+    music.pause();
+    music.currentTime = 0; // reset ke awal (opsional)
+  }
+
+  isPlaying = false;
+  btnMusik.src = "ASSET/musikpause.webp";
 }
+
 
 const music = document.getElementById("bgMusic");
 const btnMusik = document.getElementById("img-musik");
@@ -329,3 +338,4 @@ document.addEventListener("keydown", function (e) {
     exitFullscreen();
   }
 });
+
