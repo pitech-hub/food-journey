@@ -56,6 +56,7 @@ const animasi6x = document.getElementById("video6");
 const animasi7 = document.getElementById("vidanimasi7");
 const animasi7x = document.getElementById("video7");
 
+const btnResetGame2 = document.getElementById("btn-reset-game2");
 const food1 = document.getElementById("food1");
 const food2 = document.getElementById("food2");
 const food3 = document.getElementById("food3");
@@ -336,6 +337,7 @@ function showMedia(index) {
     "video5",
     "video6",
     "video7",
+    "btn-reset-game2",
     "food1",
     "food2",
     "food3",
@@ -379,6 +381,7 @@ function showMedia(index) {
     if (el.closest(".popup-container")) {
       return; // Lewati elemen ini
     }
+    if (el.classList.contains("food")) return;
     // -
     // Cek apakah ID-nya atau ID parent-nya termasuk daftar yang dikecualikan
     const parentId = el.closest("button")?.id || el.parentElement?.id;
@@ -488,6 +491,7 @@ function showMedia(index) {
   canvas.style.display = index === 22 ? "block" : "none";
   game1.style.display = index === 22 ? "block" : "none";
 
+  btnResetGame2.style.display = index === 23 ? "block" : "none";
   food1.style.display = index === 23 ? "block" : "none";
   food2.style.display = index === 23 ? "block" : "none";
   food3.style.display = index === 23 ? "block" : "none";
@@ -571,7 +575,7 @@ function showMedia(index) {
     // 1. Inisialisasi game (hanya akan berjalan sekali)
     initGame2();
     // 2. Muat state game terakhir (akan berjalan setiap kali slide ini dibuka)
-    loadGameState2();
+    loadGameState();
   }
 
   // if (index === 24) {
@@ -669,4 +673,3 @@ function showMedia(index) {
     validateQuizSlide(index);
   }
 }
-
