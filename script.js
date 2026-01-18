@@ -270,7 +270,7 @@ const mediaList = [
   { type: "image", src: "IMG/38.webp" }, // 30
   { type: "image", src: "IMG/39.webp" }, // 31
 
-  { type: "image", src: "IMG/white.webp" }, // NEW VID
+  { type: "image", src: "IMG/white.jpg" }, // NEW VID
   //
 ];
 
@@ -669,3 +669,4 @@ function showMedia(index) {
     validateQuizSlide(index);
   }
 }
+
