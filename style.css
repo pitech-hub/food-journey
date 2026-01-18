@@ -876,6 +876,27 @@ canvas {
   z-index: 100;
 }
 /*  */
+/* Tombol Reset Game 2 */
+#btn-reset-game2 {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1% 1%;
+  background: #e74c3c;
+  color: white;
+  font-weight: 600%;
+  border: none;
+  border-radius: 30%;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 10;
+}
+
+#btn-reset-game2:hover {
+  background: #c0392b;
+}
+
 /* Gaya makanan bulat */
 .food-list {
   width: 6%;
@@ -1567,5 +1588,3 @@ audio {
   height: 100%;
   border: none;
 }
-
-
